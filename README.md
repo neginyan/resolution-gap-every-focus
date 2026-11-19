@@ -33,7 +33,7 @@ python verification/run_all.py --h-repo ../resolution-gap-weak-ripple   # about 
 
 `run_all.py` runs `quick.py` and then Propositions 12 and 14 on all 9,809 and 6,952 pieces (with the corrected constant 9.549), the absorptions (R1) and (R3), the four figures, and the comparison with the true quantities; with the repository of paper H it also checks that the statements of paper H used here are in its text. Some modules of this paper import modules of paper H's repository (v1.3), which are not copied here: pass its location with `--h-repo` or the environment variable `H_REPO`.
 
-Every rerun is made in a temporary copy and compared with the stored record entry by entry; the stored records are never overwritten. Theorem H1 is certified by the repository of paper H (its `verification/run_all.py`), not here.
+Every rerun is made in a temporary copy and compared with the stored record entry by entry (flags, counts and interval bounds exactly; double-precision floats up to a relative 10⁻⁹, since their last digits may differ between machines); the stored records are never overwritten. Theorem H1 is certified by the repository of paper H (its `verification/run_all.py`), not here.
 
 ## What is where
 

@@ -1,11 +1,17 @@
 """Shared helpers of verification/quick.py and verification/run_all.py (paper I).  Python 3.11 grammar.
 Every rerun is made in a temporary work folder that holds a copy of src/*.py and of results/; the record it writes there is compared with the stored
-record of results/, entry by entry, ignoring only timing and environment entries.  The stored records are never overwritten."""
+record of results/, entry by entry, ignoring only timing and environment entries.  The stored records are never overwritten.
+Booleans, integers and strings (among them every interval-arithmetic bound kept as a decimal string, and every 'ok' entry) are compared exactly.
+Floats from double-precision numerical steps may differ in the last digits between machines (CPU, libm, BLAS); they are compared with a relative
+tolerance FLOAT_RTOL, and two floats that are both at the rounding level (|x| <= FLOAT_ATOL, e.g. a quadrature-against-closed-form difference) are
+taken as equal."""
 import json, os, shutil, subprocess, sys, tempfile, time
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 IGNORE = ('second', 'python', 'numpy', 'platform', 'elapsed', 'time')
 RES = []
+FLOAT_RTOL = 1e-9
+FLOAT_ATOL = 1e-6
 
 
 def check(name, ok, info=''):
@@ -64,6 +70,9 @@ def diff(a, b, path=''):
             d = diff(x, y, '%s[%d]' % (path, i))
             if d: return d
         return None
+    if isinstance(a, float) and isinstance(b, float) and not isinstance(a, bool):
+        if a == b or (abs(a) <= FLOAT_ATOL and abs(b) <= FLOAT_ATOL) or abs(a - b) <= FLOAT_RTOL * max(abs(a), abs(b)):
+            return None
     return None if a == b else '%s: %r vs %r' % (path, a, b)
 
 

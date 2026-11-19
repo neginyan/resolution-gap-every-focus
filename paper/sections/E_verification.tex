@@ -8,7 +8,7 @@ It needs Python~3 with \code{numpy} and \code{matplotlib}; the runs reported her
 \code{verification/quick.py} runs in a few minutes; it reruns the interval arithmetic of Lemmas~\ref{lem:M4}, \ref{lem:M12}, \ref{lem:M0} and~\ref{lem:EJ}, of Proposition~\ref{prop:res}, and of Proposition~\ref{prop:BE} and Lemma~\ref{lem:P} at their worst points, the self-test of the interval arithmetic, and the map of Theorem~\ref{thm:main}.
 \code{verification/run\_all.py} runs everything; it takes about ten minutes.
 Both exit with status $0$ only if every check passes.
-Every rerun is made in a temporary copy, and its output is compared with the stored record entry by entry (only the timing may differ); the stored records are never overwritten.
+Every rerun is made in a temporary copy, and its output is compared with the stored record entry by entry: flags, counts and interval bounds exactly, double-precision floats up to a relative $10^{-9}$ (their last digits may differ between machines), and the timing not at all; the stored records are never overwritten.
 
 \emph{What is checked.}
 \begin{itemize}
