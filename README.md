@@ -4,9 +4,9 @@
 
 Code, stored results, interval-arithmetic proofs and a verification script for the paper by Taishi Namba (2026).
 
-**Paper:** T. Namba, *Wherever the observer focuses: the lower side of the logarithmic law of the resolution gap at every focus and every resolution*, preprint, Zenodo (2026), doi: added on publication (all versions).
+**Paper:** T. Namba, *Wherever the observer focuses: the lower side of the logarithmic law of the resolution gap at every focus and every resolution*, preprint, Zenodo (2026), [doi:10.5281/zenodo.24371172](https://doi.org/10.5281/zenodo.24371172) (all versions; v1.0 is [10.5281/zenodo.24371173](https://doi.org/10.5281/zenodo.24371173)).
 
-[![DOI](https://img.shields.io/badge/DOI-added%20on%20publication-lightgrey.svg)](#citation)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24370921.svg)](https://doi.org/10.5281/zenodo.24370921)
 [![verify](https://github.com/neginyan/resolution-gap-every-focus/actions/workflows/verify.yml/badge.svg)](https://github.com/neginyan/resolution-gap-every-focus/actions/workflows/verify.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
@@ -55,7 +55,7 @@ Every rerun is made in a temporary copy and compared with the stored record entr
 | `src/` | the code of the paper (Python 3, NumPy, SciPy, Matplotlib) |
 | `results/` | the stored records |
 | `verification/` | `quick.py`, `run_all.py`, `map_check.py`, `common.py` |
-| `paper/` | LaTeX source of the paper (REVTeX 4.2) and its figures (the PDF is added on publication) |
+| `paper/` | LaTeX source of the paper (REVTeX 4.2) its figures and the PDF of v1.0 |
 
 The working record of the proofs (the stage reports of the lab sessions) is kept by the author.
 
@@ -76,7 +76,7 @@ The study was carried out with AI assistants: Anthropic Claude (planning, proofs
 
 ## Citation
 
-Please cite the paper (DOI added on publication) and this repository; see `CITATION.cff`.
+Please cite the paper ([doi:10.5281/zenodo.24371172](https://doi.org/10.5281/zenodo.24371172)) and this repository; see `CITATION.cff`. The code is archived at Zenodo: [doi:10.5281/zenodo.24370921](https://doi.org/10.5281/zenodo.24370921) (all versions; v1.0.0 is [10.5281/zenodo.24370922](https://doi.org/10.5281/zenodo.24370922)).
 
 ## License
 
