@@ -1,0 +1,379 @@
+\section{The local lemmas and the brightness lemmas}
+\label{app:A}
+
+This appendix proves the lemmas behind Lemmas~\ref{lem:lines}--\ref{lem:G0} and states the lemmas borrowed from~\cite{F,H} in the form in which they are used.
+Sections~\ref{app:A:not}--\ref{app:A:sum} are the local lemmas (new); Sec.~\ref{app:A:w} is the $w$-branch of Lemma~R$_\theta$ of~\cite{H} as it enters the lines; Secs.~\ref{app:A:J}--\ref{app:A:G0} are the brightness lemmas and the states with $G=0$ (new); Sec.~\ref{app:A:borrowed} lists the borrowed statements and compares them with the published text and code.
+
+\subsection{Notation}
+\label{app:A:not}
+
+A state is $p=\mathcal N_V(v)\,\Gamma(w)\,h(t,w)/Z$ with $t=k'v$, $h=1+E\,R$, $E=e^{-w^2/(2s^2)}$, $R(t)=\sum_nq_n\cos(nt-\phi_n)$, $V=\sigma^2/b$, $\Gamma=N(0,L^2)$, $x=(k'\sigma)^2$, $\tau=x/b$, $y=(1-b)^2\sigma^2/(2b)=(1-b)^2/(2B)$ and $r=s^2/L^2$.
+On the line, $\hat s\sim N(0,1)$ and $t=t_0+\sqrt\tau\,\hat s$; $\E_\rho$ is the average over $\hat s$, and $\langle\cdot\rangle=\int\Gamma(w)\,dw\,\E_\rho[\cdot]$.
+We write
+\begin{gather}
+X_1=\sqrt x\,R'(t),\quad \tilde F=E^2X_1^2/h\ge0,\nonumber\\ u=\sqrt y\,\hat s,\quad v=w/\sqrt2,\quad a=u+v,\nonumber\\
+\chi=\chi_v+\chi_w,\quad \chi_v=\frac{\sigma EX_1}{\sqrt2\,h},\nonumber\\ \chi_w=-\frac{\sigma^2w}{\sqrt2}\Bigl(\frac1{L^2}+\frac{ER}{s^2h}\Bigr),
+\end{gather}
+$k_E=\sqrt{r/(1+r)}$, $\mathrm{se}_E=s^2/(1+r)$, $e_E=e^{-\mathrm{se}_E/4}$, $g_s=\sqrt{r/(2+r)}$, $\mathrm{se2}=s^2/(2+r)$, $E_0=\E_\rho[R^2]$, $E_1=\E_\rho[R'^2]$, $P=2xE_1$, $W=xg_sE_1=G/2$, $\kappa=\E_\rho[\hat s^2R'^2]/E_1$, $\eta=\sup|R|$, $U=\sup|X_1|$ (in the class $\eta\le1/\ell$, $U\le U_1$, $\sum q_n\le\Qb=\tfrac14$), $R_\theta=\E_\rho[R]=\sum_nq_ne^{-u_n/2}\cos\phi_n$, $t_\rho=-x\E_\rho[R'']=b\sum_nu_nq_ne^{-u_n/2}\cos\phi_n$ with $u_n=n^2\tau$, and $T_2(K)=\E[\hat s^21\{|\hat s|>K\}]=2(K\varphi(K)+Q(K))$ with $\varphi$, $Q$ the standard normal density and upper tail.
+The averages over $w$ used below are
+\begin{gather}
+\textstyle\int\Gamma E=k_E,\ \int\Gamma E\cos v=k_Ee_E,\ \int\Gamma E^2=g_s,\nonumber\\
+\textstyle\int\Gamma E^2\cos v=g_se^{-\mathrm{se2}/4},\ \int\Gamma E^2w^2=g_s\mathrm{se2},\nonumber\\
+\textstyle\int\Gamma E^2|w|=g_s\sqrt{2\mathrm{se2}/\pi},\ \int\Gamma E|w|=k_E\sqrt{2\mathrm{se}_E/\pi},\nonumber\\
+\textstyle\int\Gamma Ew^2=k_E\mathrm{se}_E,\ \int\Gamma|w|=L\sqrt{2/\pi}.
+\end{gather}
+Three Gaussian facts are used repeatedly: Stein's identity $\E[\hat sg(\hat s)]=\E[g'(\hat s)]$, and, for real $\alpha$ and $\phi$,
+\begin{gather}
+\E[\cos(\alpha\hat s-\phi)]=\cos\phi\,e^{-\alpha^2/2},\nonumber\\ \E[\hat s\sin(\alpha\hat s-\phi)]=\alpha\cos\phi\,e^{-\alpha^2/2},\nonumber\\
+\E[\hat s^2\cos(\alpha\hat s-\phi)]=(1-\alpha^2)\cos\phi\,e^{-\alpha^2/2}.
+\label{eq:gauss3}
+\end{gather}
+(The second is Stein's identity applied to the first; the third is Stein's identity applied to $g=\hat s\cos(\alpha\hat s-\phi)$.)
+
+\subsection{The direct form of the $v$-branch}
+
+\begin{lemma}[direct form] \proofst
+\label{lem:CZ1}
+$Z\sigma^2\E_p[s_v^2\phi]=\langle hS^2(1-\cos(a+\chi))\rangle$ with $S=\sqrt b\,\hat s-EX_1/h$. Expanding $hS^2=b\hat s^2h-2\sqrt b\,\hat sEX_1+\tilde F$,
+\begin{gather}
+Z\sigma^2\E_p[s_v^2\phi]=\mathrm{(I)}+\mathrm{(II)}+\mathrm{(III)},\nonumber\\
+\mathrm{(I)}=b\langle\hat s^2h(1-\cos(a+\chi))\rangle,\nonumber\\ \mathrm{(II)}=-2\sqrt b\langle\hat sEX_1(1-\cos(a+\chi))\rangle,\nonumber\\
+\mathrm{(III)}=\langle\tilde F(1-\cos(a+\chi))\rangle .
+\end{gather}
+\end{lemma}
+\begin{proof}
+$s_v=\partial_v\ln p=-v/V+k'ER'/h$. With $v=\sqrt V\hat s$, $\sigma/\sqrt V=\sqrt b$ and $\sigma k'=\sqrt x$ this is $\sigma s_v=-S$.
+The phase of $\phi=1-\cos m_z$ is $m_z=(v+\sigma^2s_v+w+\sigma^2s_w)/\sqrt2$ with $s_w=-w/L^2-(w/s^2)ER/h$; the part $v+\sigma^2s_v$ is $\sqrt2(u+\chi_v)$ and the part $w+\sigma^2s_w$ is $\sqrt2(v+\chi_w)$, so $m_z=a+\chi$.
+Nothing else is used; the lemma is the definition written in the variables $(\hat s,w)$.
+\end{proof}
+
+\subsection{The main-term identity}
+
+Put $W_1=b\hat s^2h$, $W_2=-2\sqrt b\,\hat sEX_1$ and $\rho=\cos a-\chi\sin a-\cos(a+\chi)$, so that $|\rho|\le\chi^2/2$ and $1-\cos(a+\chi)=(1-\cos a)+\chi\sin a+\rho$.
+
+\begin{lemma}[main-term identity and its pieces] \status{proof; the constants $M_4$, $M_1$, $M_2$: by hand for $y\le10^{-40}$ (Lemma~\ref{lem:M0}), computer-assisted for $y\le10^{-4}$ (Lemmas~\ref{lem:M4}(iii), \ref{lem:M12}(ii))}
+\label{lem:CZ2}
+(I)$+$(II)$=M_0+A_1+A_2+B_1+B_2$ exactly, with $M_0=\langle(W_1+W_2)(1-\cos a)\rangle$, $A_1=\langle W_1\chi\sin a\rangle$, $A_2=\langle W_1\rho\rangle$, $B_1=\langle W_2\chi\sin a\rangle$, $B_2=\langle W_2\rho\rangle$, and $A_1=A_{1v}+A_{1w}$, $B_1=B_{1v}+B_{1w}$ by $\chi=\chi_v+\chi_w$. Moreover:
+\begin{itemize}
+\item[(M0)] $M_0=b\Psi_0+k_E(1-e_E)(bR_\theta+t_\rho)+k_Ee_Eb\,\Xi$ exactly, where $\Psi_0=1-(1-y)e^{-y/2-L^2/4}$ and $\Xi=\sum_nq_n\Xi_1(u_n)$,
+$\Xi_1(u)=\cos\phi\,e^{-u/2}[(1+u)(1-e^{-y/2}\cosh\sqrt{yu})+ye^{-y/2}\cosh\sqrt{yu}]$.
+Further $|R_\theta|\le\eta$, $|t_\rho|\le(2/e)\Qb b\le0.184\,b$ and $|\Xi|\le\Qb M_4(y)y$ with $M_4$ of Lemma~\ref{lem:M4}.
+\item[(A1v)] $|A_{1v}|\le b\sigma k_E\sqrt{15yP}/2$.
+\item[(A1w)] $|A_{1w}|\le b\sigma^2[1/(\sqrt\pi L)+\eta k_E/\sqrt{\pi\mathrm{se}_E}]$.
+\item[(A2)] $|A_2|\le b[\sigma^2\kappa W/(2(1-\eta))+\sigma^4J_2']$, $J_2'=(1+\eta k_Er/(1+r))/L^2+\eta^2g_s\mathrm{se2}/(s^4(1-\eta))$.
+\item[(B1v)] $|B_{1v}|\le\sigma^2(1-b)\kappa W/(1-\eta)$.
+\item[(B1w)] $|B_{1w}|\le2\sigma^2bc_Lk_E\sqrt{\mathrm{se}_E/\pi}/L^2+\sqrt2b\sigma^2\eta^2(1+y/2)g_s\sqrt{2\mathrm{se2}/\pi}/(s^2(1-\eta))$, with $c_L=c_2+y\Qb(M_2(y)/2+M_1(y))$, $c_2=2\Qb/e$, and $M_1$, $M_2$ of Lemma~\ref{lem:M12}; for $y\le10^{-4}$, $c_L\le0.184+y$.
+\item[(B2)] $|B_2|\le\sqrt b\sigma^2U\sqrt\kappa W/(1-\eta)^2+\sigma^4\sqrt{2bP}[k_E\mathrm{se}_E/L^4+\eta^2g_s\mathrm{se2}/(s^4(1-\eta)^2)]$.
+\end{itemize}
+\end{lemma}
+
+\begin{proof}
+The decomposition is the identity $1-\cos(a+\chi)=(1-\cos a)+\chi\sin a+\rho$ multiplied by $W_1+W_2$, and $|\rho|\le\chi^2/2$ is Taylor's theorem.
+Throughout, a factor odd in $w$ averages to zero against $\Gamma$, which is even; $E$, $h$, $\tilde F$ are even in $w$, $\chi_v$ is even and $\chi_w$ is odd; and $\sin a=\sin u\cos v+\cos u\sin v$.
+
+\emph{(M0).} The part of $W_1$ without $E$ gives $b\langle\hat s^2(1-\cos u\cos v+\sin u\sin v)\rangle$; the $\sin v$ term is odd, $\int\Gamma\cos v=e^{-L^2/4}$, and $\E[\hat s^2\cos(\sqrt y\hat s)]=(1-y)e^{-y/2}$ by Eq.~\eqref{eq:gauss3}; this is $b\Psi_0$.
+The parts with $E$ give, after the $w$-average, $k_E\E_\rho[(b\hat s^2R-2\sqrt b\,\hat sX_1)(1-e_E\cos u)]$.
+For one harmonic $R=\cos(nt-\phi)$ we have $X_1=-\sqrt{bu_n}\sin(\sqrt{u_n}\hat s-\phi)$ (up to the phase $nt_0$, absorbed into $\phi$), so $b\hat s^2R-2\sqrt b\hat sX_1=b[\hat s^2\cos(\sqrt u\hat s-\phi)+2\sqrt u\,\hat s\sin(\sqrt u\hat s-\phi)]$ with $u=u_n$.
+Without the factor $\cos(\sqrt y\hat s)$, Eq.~\eqref{eq:gauss3} gives $(1-u)\cos\phi e^{-u/2}+2u\cos\phi e^{-u/2}=(1+u)\cos\phi\,e^{-u/2}$.
+With it, write $\cos(\sqrt u\hat s-\phi)\cos(\sqrt y\hat s)=\frac12\sum_\pm\cos(\alpha_\pm\hat s-\phi)$ and $\sin(\sqrt u\hat s-\phi)\cos(\sqrt y\hat s)=\frac12\sum_\pm\sin(\alpha_\pm\hat s-\phi)$, $\alpha_\pm=\sqrt u\pm\sqrt y$; then Eq.~\eqref{eq:gauss3} gives
+\begin{equation}
+\tfrac12\cos\phi\sum_\pm e^{-\alpha_\pm^2/2}\bigl(1-\alpha_\pm^2+2\sqrt u\,\alpha_\pm\bigr).
+\end{equation}
+With $c=\sqrt{yu}$, $\alpha_\pm^2=u+y\pm2c$ and $\sqrt u\alpha_\pm=u\pm c$, so the bracket is $1+u-y$ for both signs, and the sum is $\cos\phi(1+u-y)e^{-(u+y)/2}\cosh c$.
+Hence
+\begin{equation}
+\begin{split}
+&\E\bigl[(\hat s^2\cos(\sqrt u\hat s-\phi)+2\sqrt u\hat s\sin(\sqrt u\hat s-\phi))\\&\qquad\times(1-e_E\cos\sqrt y\hat s)\bigr]\\
+&=(1+u)\cos\phi\,e^{-u/2}\\&\quad-e_E\cos\phi\,(1+u-y)e^{-(u+y)/2}\cosh c\\
+&=(1-e_E)(1+u)\cos\phi\,e^{-u/2}+e_E\,\Xi_1(u).
+\end{split}
+\label{eq:M0one}
+\end{equation}
+This one-harmonic identity was also checked in $60$ decimal digits at five cases ($y$ from $10^{-8}$ to $0.9$, $e_E$ from $0$ to $1$; largest error $4.5\times10^{-69}$, \code{cz\_exact.py}, item X2).
+Multiplying by $bq_nk_E$ and summing over $n$ gives (M0), because $b\sum q_n(1+u_n)\cos\phi_ne^{-u_n/2}=bR_\theta+t_\rho$.
+The bounds: $|R|\le\eta$ gives $|R_\theta|\le\eta$; $\sup_uue^{-u/2}=2/e$ and $\sum q_n\le\Qb$ give $|t_\rho|\le(2/e)\Qb b=0.18394\,b$; Lemma~\ref{lem:M4}(i) gives $|\Xi|$.
+
+\emph{(A1v).} $h\chi_v=\sigma EX_1/\sqrt2$ is even in $w$, so $\sin a$ may be replaced by $\sin u\cos v$, and $|\sin u|\le\sqrt y|\hat s|$. Hence $|A_{1v}|\le(b\sigma\sqrt y/\sqrt2)\int\Gamma E\cdot\E_\rho[|\hat s|^3|X_1|]\le(b\sigma\sqrt y/\sqrt2)k_E\sqrt{15}\sqrt{P/2}$ by Cauchy--Schwarz with $\E\hat s^6=15$ and $\E_\rho[X_1^2]=xE_1=P/2$.
+
+\emph{(A1w).} $h\chi_w=-(\sigma^2w/\sqrt2)[1/L^2+ER/\mathrm{se}_E]$ (because $1/L^2+1/s^2=1/\mathrm{se}_E$) is odd in $w$, so $\sin a\to\cos u\sin v$ and $|\sin v|\le1$; with $\E_\rho\hat s^2=1$, $|R|\le\eta$, $\int\Gamma|w|=L\sqrt{2/\pi}$ and $\int\Gamma E|w|=k_E\sqrt{2\mathrm{se}_E/\pi}$ this is the bound.
+
+\emph{(A2).} $|\rho|\le\chi^2/2\le\chi_v^2+\chi_w^2$. First, $h\chi_v^2=\sigma^2\tilde F/2$ and $\langle\hat s^2\tilde F\rangle\le\langle\hat s^2E^2X_1^2\rangle/(1-\eta)=g_sx\kappa E_1/(1-\eta)=\kappa W/(1-\eta)$. Second, $\chi_w^2\le\sigma^4w^2(1/L^4+E^2R^2/(s^4h^2))$, so $h\chi_w^2\le\sigma^4w^2(h/L^4+E^2R^2/(s^4h))$; with $\int\Gamma w^2h=L^2+k_E\mathrm{se}_E\E_\rho R$ and $\mathrm{se}_E/L^2=r/(1+r)$, and $\int\Gamma E^2w^2=g_s\mathrm{se2}$, $R^2/h\le\eta^2/(1-\eta)$, the $\hat s^2$-average gives $\sigma^4J_2'$.
+
+\emph{(B1v).} $EX_1\chi_v=\sigma\tilde F/\sqrt2$, so $B_{1v}=-\sqrt2\sigma\sqrt b\langle\hat s\tilde F\sin a\rangle$. $\tilde F$ is even in $w$, so $\sin a\to\sin u\cos v$, $|\hat s\sin u|\le\sqrt y\hat s^2$, and $\sqrt{2by}=(1-b)\sigma$; with $\langle\hat s^2\tilde F\rangle\le\kappa W/(1-\eta)$ this is the bound.
+This is a genuine loss; it is paired with (III) in Lemma~\ref{lem:CZ5}.
+
+\emph{(B1w).} The part with $1/L^2$ in $\chi_w$ is
+\begin{equation}
+\frac{\sqrt2\sigma^2\sqrt b}{L^2}\int\Gamma Ew\sin v\,dw\ \E_\rho[\hat sX_1\cos u],
+\label{eq:B1wL}
+\end{equation}
+because the integrand is odd in $w$ apart from $\sin v$, and $E$, $X_1$ do not mix $w$ with $\hat s$ here.
+For one harmonic, with $c=\sqrt{yu}$, Eq.~\eqref{eq:gauss3} and the same splitting into $\alpha_\pm$ give $\E[\hat s\sin(\sqrt u\hat s-\phi)\cos\sqrt y\hat s]=\frac12\cos\phi\sum_\pm\alpha_\pm e^{-\alpha_\pm^2/2}=\cos\phi\,e^{-(u+y)/2}(\sqrt u\cosh c-\sqrt y\sinh c)$, hence
+\begin{equation}
+\begin{split}
+&\E_\rho[\hat sX_1\cos u]\\&=\sqrt b\sum_nq_n\cos\phi_n\,e^{-(u_n+y)/2}\bigl[c_n\sinh c_n-u_n\cosh c_n\bigr],
+\end{split}
+\label{eq:cL}
+\end{equation}
+with $c_n=\sqrt{yu_n}$.
+(Checked in $60$ decimal digits at $90$ cases, largest error $6\times10^{-59}$, \code{du\_cl.py}.)
+Since $e^{-y/2}\le1$, $u\cosh c=u+u(\cosh c-1)$, $\cosh c-1\le(c^2/2)\cosh c=(yu/2)\cosh c$ and $c\sinh c\le c^2\cosh c=yu\cosh c$,
+\begin{equation}
+\begin{split}
+&e^{-u/2}\bigl(u\cosh c+c\sinh c\bigr)\\&\le ue^{-u/2}+y\Bigl[\tfrac12u^2e^{-u/2}\cosh c+ue^{-u/2}\cosh c\Bigr]\\&\le\frac2e+y\Bigl(\frac{M_2}2+M_1\Bigr),
+\end{split}
+\end{equation}
+and summing with $\sum q_n\le\Qb$ gives $|\E_\rho[\hat sX_1\cos u]|\le\sqrt b\,c_L$.
+With $|\int\Gamma Ew\sin v|\le\int\Gamma E|w|=k_E\sqrt{2\mathrm{se}_E/\pi}$, Eq.~\eqref{eq:B1wL} is at most $2\sigma^2bc_Lk_E\sqrt{\mathrm{se}_E/\pi}/L^2$, the first term.
+For $y\le10^{-4}$, Lemma~\ref{lem:M12} gives $\Qb(M_2/2+M_1)\le1$, so $c_L\le c_2+y\le0.184+y$.
+
+For the part with $ER/(s^2h)$ in $\chi_w$, note that $\sqrt xRR'/h=\sqrt x\,\partial_tG_E(R)$ with $G_E(R)=(ER-\ln(1+ER))/E^2$ and $|G_E|\le R^2/(2(1-\eta))$.
+For fixed $w$, $\sqrt x\partial_t=\sqrt b\,\partial_{\hat s}$, and Gaussian integration by parts moves the derivative onto $\hat s\cos(\sqrt y\hat s)$: $|\E[\hat s\cos(\sqrt y\hat s)\partial_{\hat s}G]|=|\E[G(\hat s^2\cos-\cos+\sqrt y\hat s\sin)]|\le\sup|G|\,\E[1+\hat s^2+y\hat s^2]$.
+This gives $(1+y/2)\eta^2/(1-\eta)$ times $E^2\sqrt b$; the factor $w/s^2$ is odd, so $\sin a\to\cos u\sin v$, and $\int\Gamma E^2|w|/s^2=g_s\sqrt{2\mathrm{se2}/\pi}/s^2$ gives the second term.
+Here the product $RR'$ is turned into the size $R^2\le\eta^2$.
+
+\emph{(B2).} With $|\rho|\le\chi_v^2+\chi_w^2$: the $\chi_v^2$ part is at most $\sqrt b\sigma^2\langle|\hat s|E^3|X_1|^3/h^2\rangle\le\sqrt b\sigma^2(U/(1-\eta))\langle|\hat s|\tilde F\rangle$ and $\langle|\hat s|\tilde F\rangle\le\sqrt\kappa W/(1-\eta)$ by Cauchy--Schwarz. The $\chi_w^2$ part uses $\E_\rho[|\hat s||X_1|]\le\sqrt{P/2}$, $\int\Gamma Ew^2=k_E\mathrm{se}_E$ and $\int\Gamma E^3w^2\le g_s\mathrm{se2}$.
+\end{proof}
+
+\begin{lemma}[the constants $M_1$, $M_2$] \status{(i) proof; (ii) proof, computer-assisted}
+\label{lem:M12}
+Let $M_1(y)=\sup_{u\ge0}ue^{-u/2}\cosh\sqrt{yu}$ and $M_2(y)=\sup_{u\ge0}ue^{-u/2}(1+u\cosh\sqrt{yu})$.
+(i) $M_1$ and $M_2$ are non-decreasing in $y$.
+(ii) $M_1(10^{-4})\le0.73768$, $M_2(10^{-4})\le2.74484$, hence $\Qb(M_2/2+M_1)\le0.5276\le1$ for $y\le10^{-4}$.
+\end{lemma}
+\begin{proof}
+(i) For fixed $u$, $\cosh\sqrt{yu}$ is non-decreasing in $y$ and enters with positive coefficients; so is the supremum.
+(ii) On $u\in[0,60]$, pieces of width $0.005$ ($[0,20]$) and $0.05$ ($[20,60]$) bound $ue^{-u/2}\cosh\sqrt{yu}\le u_1e^{-u_0/2}\cosh\sqrt{yu_1}$ and $ue^{-u/2}(1+u\cosh\sqrt{yu})\le u_1e^{-u_0/2}(1+u_1\cosh\sqrt{yu_1})$ on $[u_0,u_1]$, in interval arithmetic (App.~\ref{app:C}); the largest bounds are $0.73768$ (near $u=2$) and $2.74484$ (near $u=3.56$).
+For $u\ge60$ and $y\le10^{-4}$, $\sqrt{yu}\le0.01\sqrt u\le0.0013u$ and $\cosh c\le e^c$, so the two functions are at most $ue^{-0.4987u}$ and $u(1+u)e^{-0.4987u}$; their logarithmic derivatives $1/u-0.4987$ and $1/u+1/(1+u)-0.4987$ are negative for $u\ge60$, and their values at $u=60$ are below $6.1\times10^{-12}$ and $3.8\times10^{-10}$.
+\end{proof}
+At $y=0$ the two suprema are $2/e=0.73576$ and $u(1+u)e^{-u/2}$ at $u=(3+\sqrt{17})/2$, $2.73760$; the bound of (ii) is $1.9$ times below what is needed.
+The term of $c_L$ proportional to $y$ is generous: in Eq.~\eqref{eq:cL}, $c_n\sinh c_n$ and $u_n\cosh c_n$ partly cancel, and on the states tried the bound $|\E_\rho[\hat sX_1\cos u]|\le\sqrt b\,c_2$ already holds for $y\le1$ \numst.
+
+\begin{lemma}[the three constants for $y\le10^{-40}$, by hand] \proofst
+\label{lem:M0}
+Let $u_*=(3+\sqrt{17})/2$. For $0\le y\le10^{-40}$,
+\begin{gather}
+M_1(y)\le(1+10^{-38})\tfrac2e\le0.735759,\nonumber\\
+M_2(y)\le(1+10^{-38})(4u_*+2)e^{-u_*/2}\le2.737605,\nonumber\\
+M_4(y)\le(1+10^{-38})(4+2\sqrt2)e^{-(1+\sqrt2)/2}\le2.042119,\nonumber
+\end{gather}
+with $M_4$ of Lemma~\ref{lem:M4}. Hence $\Qb(M_2/2+M_1)\le0.52615\le1$, $c_L\le0.184+y$ and $M_4\le2.07$.
+\end{lemma}
+\begin{proof}
+At $y=0$ the three functions are $ue^{-u/2}$, $u(1+u)e^{-u/2}$ and $f(u,0)=e^{-u/2}(u^2+2u+3)/2$; each tends to $0$ as $u\to\infty$.
+Their derivatives are $e^{-u/2}(1-u/2)$, $e^{-u/2}(2+3u-u^2)/2$ and $e^{-u/2}(1+2u-u^2)/4$, each with one zero on $u>0$ (at $2$, $u_*$ and $1+\sqrt2$), positive before it and negative after.
+So the suprema are the values there: $2/e$; $u_*(1+u_*)e^{-u_*/2}=(4u_*+2)e^{-u_*/2}$, since $u_*^2=3u_*+2$; and $(4+2\sqrt2)e^{-(1+\sqrt2)/2}$, since $(u^2+2u+3)/2=2u+2$ at $u^2=2u+1$.
+For $y>0$ put $c=\sqrt{yu}$. If $u\le100$, then $c\le10^{-19}$ and $\cosh c\le1+(c^2/2)\cosh c\le1+10^{-38}$; each function is a sum of non-negative terms that are at most linear in $\cosh c$, so it is at most $1+10^{-38}$ times its value at $y=0$.
+If $u\ge100$, then $c\le10^{-20}\sqrt u\le0.01u$ and $\cosh c\le e^{0.01u}$, so the three functions are at most $ue^{-0.49u}$, $u(1+u)e^{-0.49u}$ and $((1+u)^2/2+1)e^{-0.49u}$; their logarithmic derivatives are at most $2/u-0.49<0$, and their values at $u=100$ are below $6\times10^{-18}$.
+The decimal values are $2/e=0.73575888\ldots$, $u_*=3.56155281\ldots$, $(4u_*+2)e^{-u_*/2}=2.73760464\ldots$ and $(4+2\sqrt2)e^{-(1+\sqrt2)/2}=2.04211814\ldots$.
+\end{proof}
+In Theorem~\ref{thm:res}, $b\in(\frac12,1]$ and $y=(1-b)^2\sigma^2/(2b)\le\sigma^2/4\le e^{-110.5}/4<10^{-48}$, so Lemma~\ref{lem:M0} applies and the lines of the option Fz are lower bounds without any computer assistance.
+The three values at $y=0$ were also checked against a grid of $10^6$ points and in $60$ digits; with $\delta=0$ at $y=10^{-4}$, with the factor $1+10^{-38}$ at $y=10^{-30}$, with $u_*$ replaced by $(3+\sqrt{13})/2$ or $3.5$, with $1+\sqrt2$ replaced by $1+\sqrt3$, and with the tail exponent $\frac12$ in place of $0.49$, the statement fails \numst{} (\code{dv\_m3.py}).
+
+\subsection{The ring and the pair}
+
+\begin{lemma}[ring] \proofst
+\label{lem:CZ4}
+If $0\le g\le M$, then for every $K>0$, $\E[\hat s^2g(\hat s)]\le K^2\E[g]+M\,T_2(K)$. In particular $\E_\rho[\hat s^2R^2]\le K^2E_0+\eta^2T_2(K)$.
+\end{lemma}
+\begin{proof}
+$\hat s^2\le K^2+\hat s^21\{|\hat s|>K\}$.
+\end{proof}
+No constant $C$ with $\E_\rho[\hat s^2R^2]\le CE_0$ for all windows exists (the ratio reaches $43.7$ on wave packets away from the focus \numst); the tail form is what holds.
+It is used with $g=R^2/h$, $M=\eta^2/(1-\eta)$ and $K^2=8\ell+100$: the first part is $q=K^2(1+\eta)/(8B(1-\eta))$ times the gain P2 (the factor $1-q$ of the line P2z), and the second part, with $\varphi(K)=\sigma^4e^{-50}/\sqrt{2\pi}$, is the line ring2.
+
+\begin{lemma}[pair] \proofst
+\label{lem:CZ5}
+Let $\delta=2b/(1-b)$, $z_0\in(0,1]$, $K=z_0/\sqrt y$, $c_\delta=\frac12-\delta-z_0^2/24$ and $\mathrm{Fr}^*=\langle\tilde F|\cos(a+\chi)-\cos a|\rangle$.
+\begin{itemize}
+\item[(a)] (III)$+B_{1v}=\mathcal Q+\langle\tilde F(\cos a-\cos(a+\chi))\rangle\ge\mathcal Q-\mathrm{Fr}^*$, $\mathcal Q=\langle\tilde F(1-\cos a-\delta u\sin a)\rangle$.
+\item[(b)] $\mathcal Q\ge(1-\frac{z_0^2}2)[\langle\tilde F(1-\cos v)\rangle-2\langle\tilde F1\{|\hat s|>K\}\rangle]+c_\delta y\langle\tilde F\hat s^21\{|\hat s|\le K\}\rangle-\delta\sqrt y\langle\tilde F|\hat s|1\{|\hat s|>K\}\rangle$.
+\item[(c)] Hence (III)$+B_{1v}\ge\frac W{1+\eta}(1-\frac{z_0^2}2)(1-e^{-\mathrm{se2}/4})+[\text{chirp}]-[\text{tail}]-\mathrm{Fr}^*$, with $[\text{chirp}]=c_\delta y(\kappa W-g_sU^2T_2(K))/(1+\eta)$ if $c_\delta\ge0$ and $=-|c_\delta|y\kappa W/(1-\eta)$ if $c_\delta<0$, and $[\text{tail}]=(U^2g_s/(1-\eta))(4Q(K)+2\delta\sqrt y\varphi(K))$.
+\item[(d)] $\mathrm{Fr}^*\le\mathrm{FrB2}=\frac W{1-\eta}[c_0+\sigma^2\sqrt{\mathrm{se2}/\pi}/L^2]$ and $\mathrm{Fr}^*\le\mathrm{FrB1}=\frac W{1-\eta}[(c_0\sqrt{2\mathrm{se2}/\pi}+c_1\mathrm{se2})/\sqrt2+c_0^2+c_1^2\mathrm{se2}]+\sqrt{y\kappa}\,\mathrm{FrB2}$, where $c_0=\sigma U/(\sqrt2(1-\eta))+\zeta/\sqrt2$, $\zeta=\sigma^2\eta e^{-1/2}/(s(1-\eta))$, $c_1=\sigma^2/(\sqrt2L^2)$.
+\end{itemize}
+\end{lemma}
+\begin{proof}
+(a) $1-\cos(a+\chi)=(1-\cos a)+(\cos a-\cos(a+\chi))$, and $B_{1v}=-\sqrt2\sigma\sqrt b\langle\hat s\tilde F\sin a\rangle$ with $\sqrt2\sigma\sqrt b\hat s=\delta u$.
+(b) $\tilde F$ and $\Gamma$ are even in $w$, so the $\sin v$ terms average out and $\mathcal Q=\langle\tilde Fq\rangle$ with $q=(1-\cos v)+\cos v\,g(u)=(1-\cos v)(1-g(u))+g(u)$, $g(u)=1-\cos u-\delta u\sin u$.
+For $|u|\le z_0\le1$: $0\le u\sin u\le u^2$ and $u^2/2-u^4/24\le1-\cos u\le u^2/2$, so $g\le z_0^2/2\le1$ and $g\ge c_\delta u^2$; since $1-g\ge1-z_0^2/2\ge0$, $q\ge(1-z_0^2/2)(1-\cos v)+c_\delta u^2$.
+For $|u|>z_0$: pointwise $1-\cos a-\delta u\sin a\ge-\delta|u|$, so $q\ge-\delta|u|$.
+(c) $\tilde F$ lies between $E^2X_1^2/(1+\eta)$ and $E^2X_1^2/(1-\eta)$; $\langle E^2X_1^2(1-\cos v)\rangle=W(1-e^{-\mathrm{se2}/4})$; $\E_\rho[\hat s^2X_1^21\{|\hat s|\le K\}]\ge x\kappa E_1-U^2T_2(K)$; for the tail, $X_1^2\le U^2$, $\mathrm P(|\hat s|>K)=2Q(K)$ and $\E[|\hat s|1\{|\hat s|>K\}]=2\varphi(K)$.
+(d) $|\cos(a+\chi)-\cos a|\le|\chi|$ (form B2), and $\le|\chi||\sin a|+\chi^2/2$ with $|\sin a|\le|u|+|v|$ (form B1); $|\chi|\le c_0+c_1|w|$ because $|\chi_v|\le\sigma U/(\sqrt2(1-\eta))$ and $|w|E\le se^{-1/2}$. The part with $u$ uses $\E_\rho[|\hat s|R'^2]\le\sqrt\kappa E_1$ and gives $\sqrt{y\kappa}\,\mathrm{FrB2}$.
+\end{proof}
+The chirp gain (the phase turning inside the focus) and the cross loss $B_{1v}$ act on the same quantity, brightness times $\kappa$; for small $b$ the balance is positive and keeps the fraction $1-4b/(1-b)$ of the gain.
+
+\subsection{The $v$-branch, the options, and $b>\frac12$}
+\label{app:A:sum}
+
+Collecting Lemmas~\ref{lem:CZ1}, \ref{lem:CZ2} and~\ref{lem:CZ5}, with $2N=Z\sigma^2\E_p[s_v^2\phi]$,
+\begin{equation}
+\begin{split}
+2N\ \ge\ &b\Psi_0-k_E(1-e_E)b(\eta+0.184)-k_Eby\Qb M_4\\&-|A_{1v}|-|A_{1w}|-|A_2|-|B_{1w}|-|B_2|\\&+[\mathrm{(III)}+B_{1v}],
+\end{split}
+\end{equation}
+where $[\mathrm{(III)}+B_{1v}]$ is bounded below by Lemma~\ref{lem:CZ5}(c)--(d) (options Tz) or, without the pair lemma, by $\mathrm{(III)}\ge0$ and (B1v), i.e.\ by $-\sigma^2(1-b)\kappa W/(1-\eta)$ (option Fz).
+The $v$-part of den is $Z\sigma^2\E_p[s_v^2]=b(1+k_ER_\theta)+k_Et_\rho+\langle\tilde F\rangle\le b(1+\eta k_E)+0.184bk_E+W/(1-\eta)$.
+For $b\in(\frac12,1]$ Lemmas~\ref{lem:CZ1}, \ref{lem:CZ2}, \ref{lem:CZ4} and Lemma~R$_\theta$ use only $1-b\ge0$ and $y\le10^{-4}$ (here $y\le\sigma^2/4$); the pair lemma is not used. The lines of the option Fz include the positive line ``pair'', which the Fz lower bound does not contain; subtracting it gives a weaker lower bound, not a new estimate.
+
+\subsection{The $w$-branch and den (Lemma~R$_\theta$ of~\cite{H})}
+\label{app:A:w}
+
+The $w$-branch and the denominator are those of Lemma~R$_\theta$ of~\cite{H} (\Hsec{IX~A}; code \code{co\_remainders.py} of~\cite{H}); only the ring part of N2 is replaced by Lemma~\ref{lem:CZ4}.
+With $\Lambda_1=\eta k_E(2+r)/((1+r)L^2)$, $Q_2=1+\eta k_Er/(1+r)+2\eta k_E/(1+r)$, $D_0=E_0g_s\mathrm{se2}/s^4$, $J_{\rm up}=Q_2/L^2+D_0/(1-\eta)$, $M_{4c}=3(1+\eta k_Er^2/(1+r)^2)+6\eta k_Er/(1+r)^2$, $M_{4w}=M_{4c}+3\mathrm{se2}D_0/(1-\eta)$, $\xi=\sigma U_1/(1-\Qb)$ and $\zeta$ as in Lemma~\ref{lem:CZ5}, the terms used are:
+gains $\mathrm{P1}=2\sigma^2/L^2$ and $\mathrm{P2}=2\sigma^2D_0/(1+\eta)$; losses $\mathrm{N1}=2\sigma^2\Lambda_1$, $\mathrm{N2}=\sigma(1-b)^2Q_2a/(16B)$ (after the ring split), $\mathrm{N3}=\sigma^2M_{4w}/2$, $\mathrm{N4}=\tfrac32\sigma^2[(\xi^2+\zeta^2)J_{\rm up}+\sigma^4M_{4w}/L^4]$; and in den, $b(1+\eta k_E)+0.184bk_E$, $W/(1-\eta)$, $\sigma^2(1/L^2+\Lambda_1)$ and $\sigma^2D_0/(1-\eta)$.
+The conditions used are $\eta<1$, $\Qb=\frac14$ and $A=\sigma^2/s^2\le1$ (in $\zeta$); App.~\ref{app:B} shows that each line is one of these terms in the same or a worse form.
+
+\subsection{Two foci and the brightness hypothesis}
+\label{app:A:J}
+
+\begin{lemma}[two foci] \proofst
+\label{lem:DH1}
+Let $R$ be a real $C^1$ function on the line, $\theta_\tau$ the Gaussian of variance $\tau$ centred at $t_0$, $E_1^{(\tau)}=\langle\theta_\tau R'^2\rangle>0$ and $\kappa=\langle(u^2/\tau)\theta_\tau R'^2\rangle/E_1^{(\tau)}$ (here $u=t-t_0$, as in Sec.~\ref{sec:setting}). For every $\tau'>0$,
+\begin{equation}
+E_1^{(\tau)}\le\sqrt{\tau'/\tau}\,\exp\bigl(\kappa(\tau/\tau'-1)/2\bigr)E_1^{(\tau')} .
+\end{equation}
+\end{lemma}
+\begin{proof}
+$\theta_{\tau'}(u)=\sqrt{\tau/\tau'}\,\theta_\tau(u)e^{-cu^2}$ with $c=(1/\tau'-1/\tau)/2$, of either sign. $w=\theta_\tau R'^2/E_1^{(\tau)}$ is a probability density, so $E_1^{(\tau')}=\sqrt{\tau/\tau'}E_1^{(\tau)}\E_w[e^{-cu^2}]$.
+With $z=u^2$, $z\mapsto e^{-cz}$ is convex for every real $c$, and Jensen's inequality for the law of $z$ under $w$ gives $\E_w[e^{-cz}]\ge e^{-c\E_w[z]}=e^{-c\kappa\tau}$.
+(The function $u\mapsto e^{-cu^2}$ need not be convex; the convexity is used in $z=u^2$.)
+\end{proof}
+Equality holds when $w$ concentrates at one value of $u^2$; the first line of Lemma~CN-1 of~\cite{H} is never better than this inequality.
+
+\begin{corollary}[(J)] \proofst
+\label{cor:J}
+Let $\tau'=\lambda\kappa_b\tau$ with $\lambda\kappa_b\le1$ and $\kappa\le\kappa_b$. Then
+(1) $E_1\le\sqrt{\lambda\kappa_b}\,e^{1/(2\lambda)}E_1^{(\tau')}$;
+(2) $E_0^{(\tau')}\le E_0/\sqrt{\lambda\kappa_b}$;
+(3) $xE_1\le\sqrt{\lambda\kappa_b}e^{1/(2\lambda)}[(1+b'/2)\hat E\ln(2B_0(\hat E,b')/\hat E)+c_{\rm CM}b']$ with $b'=b/(\lambda\kappa_b)$, $\hat E=\min(E_0/\sqrt{\lambda\kappa_b},\frac1{16})$.
+\end{corollary}
+\begin{proof}
+(1) In Lemma~\ref{lem:DH1}, $\kappa(\tau/\tau'-1)/2=(\kappa/\kappa_b)/(2\lambda)-\kappa/2\le1/(2\lambda)$.
+(2) is the second line of Lemma~CN-1 of~\cite{H} (Sec.~\ref{app:A:borrowed}).
+(3) Lemma~CM-1 of~\cite{H} at the focus $(t_0,\tau')$, where $b$ becomes $b'=x/\tau'$, with $E_0'\le\Qb^2$, then (2) and the monotonicity (S1) below.
+\end{proof}
+
+\emph{(S1).} $h(E)=\ln(2B_0(E,b)/E)$ decreases for $E>0$, $Eh(E)$ increases on $(0,\frac1{16}]$, and $B_0$ increases in $E$ and in $b$.
+Indeed, with $t_1=\sqrt E$ and $t_2=(E/2)^{1/(2+b)}$, $h'(E)=-(1+t_2b/(2+b))/(E(1+t_1+t_2))<0$; $(Eh)'=h+Eh'\ge h-1>0$ because $1+t_2b/(2+b)\le1+t_1+t_2$ and $h\ge\ln(2/E)\ge\ln32>1$; and $(E/2)^{1/(2+b)}$ increases in $b$ since $E/2<1$.
+
+\begin{proof}[Proof of Lemma~\ref{lem:Hprime}]
+(A) $E_0\le\Qb^2=\frac1{16}$ by (P3), and $P=2\mu E_0$.
+(K) $\kappa P=2xE_1\kappa=2x\E_\rho[\hat s^2R'^2]\le2x\sup R'^2\,\E_\rho[\hat s^2]=2x\sup R'^2$; with $R=\sum q_n\cos(nt-\phi_n)$, $|R'|\le N_1=\sum nq_n$ and $\sqrt xN_1\le U_1$ (Sec.~\ref{app:A:borrowed}). Hence $\kappa P\le2U_1^2$.
+(CM) is Lemma~CM-1 of~\cite{H} with $E_0'\le\Qb^2=\frac1{16}$, written with $E_0=P/(2\mu)$; $E_0\le\frac1{16}$ allows $\hat E=\min(E_0,\frac1{16})$. The constant is $c_{\rm CM}=(\sqrt2/e)/16$.
+(J) is Corollary~\ref{cor:J}(3) with $s=\sqrt{\lambda\kappa_b}$ and $c=e^{1/(2\lambda)}$, divided by $\mu s$.
+\end{proof}
+
+\subsection{The closed forms}
+\label{app:A:DI}
+
+Let $P/2\le\mathcal U(P;\mu,b,s,c)$ with $\mu,b>0$, $0<s\le1$, $c\ge1$. Put $b'=b/s^2$, $A=c(1+b'/2)$, $\bar B=B_0(\frac1{16},b')$ and $\mathsf y=E_0/s$.
+
+\begin{lemma}[closed forms, general] \proofst
+\label{lem:DIgen}
+\begin{itemize}
+\item[(i)] If $\mu>\mu_{\rm cap}=A\ln(32\bar B)+16c_{\rm CM}cb'$, then $\mathsf y<\frac1{16}$.
+\item[(ii)] If $\mu>\mu_{\rm cap}$, then $\mathsf y\le2B_0(\mathsf y,b')e^{-\mu/A}+c_{\rm CM}b'/(1+b'/2)$. Consequently, with $y_1=2\bar Be^{-\mu/A}+c_{\rm CM}b'$ and, if $y_1\le\frac1{16}$, $B_1=B_0(y_1,b')$:
+$P=2\mu s\mathsf y\le4\mu sB_1e^{-\mu/A}+2c_{\rm CM}\mu b/(s(1+b'/2))$.
+\item[(iii)] If $\mu\ge\frac12$, $\kappa\le\kappa_b\le1/\mu$, and (J) is used with $\lambda=\mu$, then for $\mu>\mu_{\rm cap}$:
+$P\le4\mu e^{-\mu}\sqrt{e\mu\kappa_b}(1+\varepsilon)$, $1+\varepsilon=B_1\exp(b/(2\kappa_b))+(2c_{\rm CM}/(4\sqrt e))be^{\mu}/(\mu\kappa_b)$.
+\item[(iv)] ($s=c=1$) If $\mu>\mu_{\rm cap}(b)$, then $P\le4\mu B_1e^{-\mu/(1+b/2)}+2c_{\rm CM}\mu b/(1+b/2)$.
+\item[(v)] Under (ii), for every $t>0$: $\mathsf y\le\max(2B_0(\mathsf y,b')e^{-\mu/A+t},\ c_{\rm CM}b'/((1+b'/2)t))$.
+\item[(vi)] Always $P\le\max\bigl(\text{the bound of (ii) with }B_1=B_0(\min(y_1,\frac1{16}),b'),\ sc[(1+b'/2)\ln(32\bar B)/8+2c_{\rm CM}b']\bigr)$.
+\end{itemize}
+\end{lemma}
+\begin{proof}
+(i) If $\mathsf y\ge\frac1{16}$ then $\hat E=\frac1{16}$ and $\mathcal U=cs[(1+b'/2)\frac1{16}\ln(32\bar B)+c_{\rm CM}b']$, while $P/2=\mu E_0\ge\mu s/16$; so $\mu\le\mu_{\rm cap}$.
+(ii) The hypothesis reads $\mu\mathsf y\le A\mathsf y\ln(2B_0(\mathsf y)/\mathsf y)+c_{\rm CM}cb'$. Let $Y=2B_0(\mathsf y)e^{-\mu/A}$. If $\mathsf y\le Y$ we are done. Otherwise $\mathsf y=Y(1+\theta)$, $\theta>0$, and $\ln(2B_0/\mathsf y)=\mu/A-\ln(1+\theta)$, so $A\mathsf y\ln(1+\theta)\le c_{\rm CM}cb'$; with $(1+\theta)\ln(1+\theta)\ge\theta$, $Y\theta\le c_{\rm CM}b'/(1+b'/2)$. The consequence uses $\mathsf y\le y_1$ and (S1).
+(iii) $\mu/A=\mu e^{-1/(2\mu)}/(1+b'/2)\ge(\mu-\frac12)(1-b'/2)\ge\mu-\frac12-\mu b'/2$ (by $e^{-x}\ge1-x$, $1/(1+x)\ge1-x$, $\mu\ge\frac12$), so $e^{-\mu/A}\le e^{-\mu}\sqrt e\,e^{b/(2\kappa_b)}$; the second term of (ii) is at most $2c_{\rm CM}\mu b/\sqrt{\mu\kappa_b}=4\mu e^{-\mu}\sqrt{e\mu\kappa_b}\cdot2c_{\rm CM}be^{\mu}/(4\sqrt e\mu\kappa_b)$.
+(iv) is (ii) with $s=c=1$.
+(v) If $\mathsf y>Ye^t$ then $\ln(1+\theta)>t$ in the proof of (ii), so $A\mathsf yt<c_{\rm CM}cb'$.
+(vi) If $\mu>\mu_{\rm cap}$ and $y_1\le\frac1{16}$ this is (ii); in every case $\hat E\le\frac1{16}$ and (S1) give $P/2\le\mathcal U\le cs[(1+b'/2)\frac1{16}\ln(32\bar B)+c_{\rm CM}b']$, the second entry.
+\end{proof}
+
+\begin{proof}[Proof of Lemma~\ref{lem:DI}]
+With $s=c=1$, $A=1+b/2$ and $\bar B=B_0(\frac1{16},b)$: (iv) is item (iv) above; (v) is item (v) with $\mathsf y=P/(2\mu)$, where $B_0(\mathsf y,b)\le\bar B$ by (i) and (S1).
+(K) is item (iii) with the bound $1+\varepsilon\le E_J(\mu)$ proved next.
+\end{proof}
+
+\begin{lemma}[the constant $E_J$] \proofst
+\label{lem:EJ}
+If $\mu\ge6$ and $\kappa_b\ge16be^{\mu}/\mu$ (so $b'\le\beta:=e^{-\mu}/16$), then in Lemma~\ref{lem:DIgen}(iii) $\mu>\mu_{\rm cap}$, $y_1\le\frac1{16}$, and $1+\varepsilon\le E_J(\mu)=(1+4.43e^{-\mu/2})^2e^{\mu e^{-\mu}/32}+6.2\times10^{-4}$.
+\end{lemma}
+\begin{proof}
+Every quantity below is bounded by a function monotone in $\mu$, which reduces the claim to $\mu_0=6$.
+$\beta$, $\mu\beta=\mu e^{-\mu}/16$ ($\mu\ge1$), $c=e^{1/(2\mu)}$ and $A=c(1+\beta/2)$ decrease in $\mu$; $\bar B=(\frac54+(1/32)^{1/(2+\beta)})^2$ increases in $\beta$ (base $<1$, exponent decreasing in $\beta$), hence decreases in $\mu$.
+At $\mu_0$, rounded outward: $\beta_0\le1.549221\times10^{-4}$, $(1/32)^{1/(2+\beta_0)}\le0.1768005$, $\bar B_0\le2.035760$, $A_0\le1.086989$, $c_{\rm CM}\le0.03251626$.
+(a) $\mu_{\rm cap}\le A_0\ln(32\bar B_0)+16c_{\rm CM}c_0\beta_0\le1.086989\times4.176605+0.0000877\le4.540009<6$.
+(b) $Y:=y_1e^{\mu}\le Y_0:=2\bar B_0\sqrt e\,e^{\mu_0\beta_0/2}+c_{\rm CM}/16\le6.717953$ (because $e^{-\mu/A}\le\sqrt ee^{\mu b'/2}e^{-\mu}$ and $\beta e^{\mu}=\frac1{16}$); so $y_1\le Y_0e^{-6}\le0.016653\le\frac1{16}$.
+(c) $e^{\mu/2}\sqrt{y_1}\le\sqrt{Y_0}\le2.591902$ and $e^{\mu/2}(y_1/2)^{1/(2+b')}\le\exp(\ln(Y/2)/(2+\beta)+\mu\beta/(2(2+\beta)))\le\sqrt{Y_0/2}\,e^{\mu_0\beta_0/4}\le1.833177$ ($Y_0>2$); the sum is at most $4.425079\le4.43$, so $\sqrt{B_1}\le1+4.43e^{-\mu/2}$.
+(d) The added term is at most $2c_{\rm CM}/(64\sqrt e)\le6.16316\times10^{-4}\le6.2\times10^{-4}$.
+With $b/(2\kappa_b)\le\mu e^{-\mu}/32$ these give $1+\varepsilon\le E_J(\mu)$.
+\end{proof}
+The seven numbers at $\mu=6$ were also computed in interval arithmetic (margins $1.459992$, $0.045848$, $0.004922$, $3.68\times10^{-6}$ for (a)--(d)), and the four conditions were checked on $[6,80]$ in steps of $0.01$ and on $[80,\infty)$ \numst; with $4.43\to4.40$ or $\mu_0=6\to4$ the claim fails.
+$E_J$ decreases in $\mu$ for all $\mu\ge0$: for $\mu\ge1$ both terms of its derivative are negative, and for $\mu<1$ the first term ($\ge2.69$ in size) dominates the second ($\le0.94$).
+$E_{\rm CM}(\mu)=(1+3.445e^{-\mu/2})^2(1+2\times10^{-3}/\ell)$ decreases in $\mu$ as well.
+
+\subsection{States with $G=0$}
+\label{app:A:G0}
+
+\begin{proof}[Proof of Lemma~\ref{lem:G0}]
+(1) $G=0$ means $E_1=\E_\rho[R'^2]=0$, so $R'=0$ (the Gaussian average has full support), $R$ is constant and has mean zero: $R=0$, $h=1$, $p=\mathcal N_V(v)\Gamma(w)$, $s_v=-v/V$, $s_w=-w/L^2$.
+(2) $v+\sigma^2s_v=(1-b)v$ and $w+\sigma^2s_w=(1-\sigma^2/L^2)w$. With $v=\sqrt VX$, $w=LY$ ($X$, $Y$ independent standard normal), $m_z=\alpha X+cY$ with $\alpha=\sigma(1-b)/\sqrt{2b}$, $c=(L-\sigma^2/L)/\sqrt2$.
+(3) $\E[X^2\cos(\alpha X+cY)]=(1-\alpha^2)e^{-(\alpha^2+c^2)/2}$ by Eq.~\eqref{eq:gauss3} and $\E\cos cY=e^{-c^2/2}$ (the $\sin$ part vanishes). With $e:=e^{-(\alpha^2+c^2)/2}$: $\E[s_w^2\phi]=(1-(1-c^2)e)/L^2$, $\E[s_v^2\phi]=(1-(1-\alpha^2)e)/V$, den $=\sigma^2(1/V+1/L^2)$, $2A_w=2\sigma^2\E[s_w^2(1-\phi/4)]=\sigma^2A_1/(2L^2)$ and $N_\phi=\sigma^2A_2/(2V)$, with $A_1=3+(1-c^2)e$, $A_2=1-(1-\alpha^2)e$. So
+$\mathcal Q:=(a)+(a')=[A_1/L^2+A_2/V]/[2\sigma(1/L^2+1/V)]$.
+(4) $A_1\ge k=3-2/e$, since $(1-c^2)e\ge-c^2e^{-c^2/2}\ge-\max_tte^{-t/2}=-2/e$.
+(5) $A_2\ge1-e^{-c^2/2}$: if $\alpha^2\le1$, $(1-\alpha^2)e\le e^{-c^2/2}$; if $\alpha^2>1$, $(1-\alpha^2)e<0$.
+(6) $c^2\ge\frac9{32}L^2$, because $\sigma^2/L^2\le\frac14$.
+(7) Put $\mathsf y=L^2$, $z=9\mathsf y/64\le c^2/2$, $B=b/\sigma^2$. $\mathcal Q$ is the average of $A_1/(2\sigma)$ and $A_2/(2\sigma)$ with weights $1/\mathsf y$ and $B$, so $2\sigma\mathcal Q\ge F:=\lambda k+(1-\lambda)(1-e^{-z})$, $\lambda=\sigma^2/(\sigma^2+b\mathsf y)$.
+If $z\ge1$: $F\ge\min(k,1-1/e)=0.632$, so $\mathcal Q\ge0.316/\sigma$.
+If $z\le1$: $1-e^{-z}\ge z-z^2/2\ge z/2$, so $F\ge(\sigma^2k+\alpha'\mathsf y^2)/(\sigma^2+b\mathsf y)$ with $\alpha'=\frac9{128}b$; the numerator is at least $\max(\sigma^2k,2\sigma\mathsf y\sqrt{k\alpha'})$. If $b\mathsf y\le\sigma^2$ the denominator is at most $2\sigma^2$ and $F\ge k/2$; if $b\mathsf y\ge\sigma^2$ it is at most $2b\mathsf y$ and $F\ge\sigma\sqrt{9k/128}/\sqrt b$. So $\mathcal Q\ge\min(k/(4\sigma),C_0/\sqrt b)$.
+(8) $k/4=0.566>0.316$.
+\end{proof}
+The bound uses neither $\tau$, $\mu$, $\kappa$, $x$ (a state with $G=0$ does not depend on them) nor $b\le\frac12$. The true minimum over $L$ is of order $1/\sqrt b$; $C_0$ is about five times below it \numst.
+
+\subsection{Borrowed statements, compared with the published versions}
+\label{app:A:borrowed}
+
+The following are used as stated in~\cite{F} (v1.5) and~\cite{H} (v1.3); each was compared word for word with the published text and with the published code.
+
+\emph{From~\cite{F}} (numbering of v1.5).
+Lemma~19 (BL0), item (iii): $\int\mathcal N_Vv^kF(k'v)dv=V^{k/2}(m_k\langle F\rangle+r_k)$, and for $F\ge0$, $|\hat F_n|\le\langle F\rangle$.
+Lemma~21 (BL1): $\Jww=J_{ww,{\rm per}}(1+\epsilon_1)$, $|\epsilon_1|\le\nu_0(1+2\Qb)/(1-\Qb\nu_0/2)$.
+Lemma~22 (BL2): $\sigma^2\Jvv=b+W$ exactly, and the sandwich $W_{\rm per}\le((1+\Qb\nu_0/2)W+\frac12b\tau\Qb\nu_2)/(1-\nu_0)$.
+Lemma~23 (BL3): the curvature inequality, Eq.~(BL3) of~\cite{F}, with its remainders $a_1,\dots,a_{10}$ (App.~\ref{app:D}).
+None of these assumes a size of $\tau$; their remainders are written through $\nu_k(\tau,\beta)$. Lemma~20 (narrow envelopes have $\tau>80$) is not used.
+
+\emph{From~\cite{H}} (\Hsecs{III, VII, IX~A}; v1.3).
+Lemma~CM-1: for every window of the class and every focus, with $E_0'=\langle\theta_{2\tau}R^2\rangle_t\le\Qb^2$,
+$xE_1\le(1+b/2)E_0\ln(2B_0/E_0)+(\sqrt2/e)bE_0'$, $B_0=(1+\sqrt{E_0}+(E_0/2)^{1/(2+b)})^2$; its proof uses only $f\ge0$ (analytic continuation of the blurred profile, Paley--Wiener for the Gaussian focus, and a dual of the Chernoff bound for the second moment).
+Lemma~CN-1, second line: for $\tau'\le\tau$, $E_0^{(\tau')}\le\sqrt{\tau/\tau'}E_0$ ($\theta_{\tau'}\le\sqrt{\tau/\tau'}\theta_\tau$ pointwise).
+Lemma~R$_\theta$: Sec.~\ref{app:A:w}.
+Lemma~A4*: $e\sigma^2|\int\Gamma\,\mathrm{Re}\langle(\theta_\tau-\Theta)Fe^{i\psi}\rangle|\le a_4^*=eW_{\rm per,up}[\beta^2\nu_2/2+\beta\nu_1((\xi+\zeta)/\sqrt2+\sigma^2\sqrt{\mathrm{se2}/\pi}/L^2)]$.
+Lemma~BE: its steps (BE-a)--(BE-3) and the constant $\rho_W$ are used as published; the two limits $B\le10^4$, $\sigma\ge10^{-3000}$ are replaced as described in Sec.~\ref{sec:verywide}; its upper end is $\sigma\le e^{-55.26}$ (note 5 to Table~\ref{tab:borrowed}).
+Window constants (the class, $x\ge5\times10^{11}\sigma^2$, so $U^2=\ln(1/x)+30\le2\ell+3.1$): $U_1=\Qb\sqrt{2\ell+3.1}+10^{-6}\ge\sqrt xN_1$, $U_2=\Qb(2\ell+3.1)+10^{-4}\ge xN_2$, $\gamma_P=(U_2(1+\Qb)+U_1^2+U_1(1+2\Qb)/\sqrt e)/(1-\Qb)^2$, $c_\chi=(U_1/(1-\Qb)+\sqrt{2/\pi}+\Qb e^{-1/2}/(1-\Qb))/\sqrt2$; none has an upper limit on $\ell$.
+
+\begin{table*}
+\caption{Borrowed statements against the published text and code of~\cite{H}, and the code of this paper. ``Same'' means character by character after the substitutions shown.}
+\label{tab:borrowed}
+\begin{ruledtabular}
+\small
+\begin{tabular}{p{0.15\textwidth}p{0.27\textwidth}p{0.25\textwidth}p{0.18\textwidth}p{0.06\textwidth}}
+item & published text & published code & code here & agree\\ \hline
+CM-1 & $xE_1\le(1+\frac b2)E_0\ln\frac{2B_0}{E_0}+\frac{\sqrt2}ebE_0'$ & \code{cm\_local\_bound.py}: \code{K2=sqrt(2)/e} & $c_{\rm CM}=\sqrt2/(16e)$ ($E_0'\le\frac1{16}$) & yes (note 1)\\
+$B_0$ & $(1+\sqrt{E_0}+(E_0/2)^{1/(2+b)})^2$ & the same & the same & yes\\
+range of $b$ in CM-1 & ``every focus'' & header: \code{b <= 1} & only $b'\le\frac1{16}$ used & note 2\\
+CN-1, line 2 & $E_0^{(\tau')}\le\sqrt{\tau/\tau'}E_0$ & \code{cn\_lemmas.rhs2} & Cor.~\ref{cor:J}(2) & yes\\
+$U_1$ & $\sqrt xN_1\le\Qb\sqrt{2\ell+3.1}+10^{-6}$ & \code{cl\_link.py} & \code{dk\_lemma.state} & yes\\
+$\Qb$ & (P3) $\sum q_n\le\frac14$ & \code{QB = 0.25} & \code{QB = 0.25} & yes\\
+$\kappa$ & $\langle(s^2/\tau)\theta_\tau R'^2\rangle/E_1$, $s=t-t_0$ & \code{cn\_search} & $u=t-t_0$ & yes\\
+Lemma~BE & $\kappa=1.1\times10^{-5}$, $\rho_W\le0.0801$, $\Psi\ge0.2211$ & \code{ch\_bedge.py} & \code{dr\_be.py} & yes (notes 3, 5)\\
+\end{tabular}
+\end{ruledtabular}
+\end{table*}
+
+Notes to Table~\ref{tab:borrowed}.
+(1) Up to v1.2, the code of~\cite{H} had one place, the column $\Psi_2$ of Sec.~IX~A (\code{cn\_lemmas.py}), that used $0.0325$ instead of $(\sqrt2/e)/16=0.032516$; v1.3 uses the exact value, and the numbers of that table do not change in the digits shown. This paper uses $c_{\rm CM}$.
+(2) The proof of CM-1 does not use $b\le1$; this paper uses (J) only with $b'\le\frac1{16}$, so the difference between the text and the header of the code (corrected in v1.3 of~\cite{H}) does not matter here. In~\cite{H}, $\Psi_2$ also evaluates $b'>1$, but its tabulated values are bit for bit the same when restricted to $b'\le1$ \numst.
+(3) The text and the code of Lemma~BE agree (the constant, $y$, $1-e$, $\rho_W$, $\Psi$, the two cases of $L^2$ and the list of remainders).
+(4) Lemma~R$_\theta$ of~\cite{H} contains, in its $v$-branch remainder $N_{16}$, the constant $M_2(y)$ of Lemma~\ref{lem:M12}, which v1.2 evaluated on a grid and v1.3 bounds by a proof (\code{co\_remainders.M2\_const}); this paper does not use that branch (Sec.~\ref{app:A:w}).
+(5) Up to v1.2, \cite{H} stated Lemma~BE for $\sigma\in[10^{-3000},10^{-24}]$, which leaves out $\ell\in[55.26,24\ln10)$, $24\ln10=55.262\ldots$; v1.3 states it for $\sigma\le e^{-55.26}$ with the same proof, and re-checks at $\sigma=e^{-55.26}$ the three places where the proof uses an upper bound on $\sigma$. In this paper Lemma~BE enters for $\ell<960.8$ only through Theorem~H1; for $\ell\ge960.8$ Proposition~\ref{prop:BE} proves its own version (\code{dr\_be.py}).

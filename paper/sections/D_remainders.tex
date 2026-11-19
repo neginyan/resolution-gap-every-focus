@@ -1,0 +1,73 @@
+\section{The remainders of Proposition~\ref{prop:BE}}
+\label{app:D}
+
+\subsection{Lemma~BE of~\cite{H} and Proposition~\ref{prop:BE}, place by place}
+
+Table~\ref{tab:BEplaces} lists the places where Lemma~BE of~\cite{H} (\Hsec{VII} and App.~D\,5) uses $B\le10^4$ or $\sigma\ge10^{-3000}$, in the published text (\code{06a\_bedge.tex}, \code{D\_details.tex}) and code (\code{ch\_bedge.py}), and their form in Proposition~\ref{prop:BE}.
+Text and code of~\cite{H} agree at every place (the constant $1.1\times10^{-5}$, $y$, $1-e$, $\rho_W\le0.0801$, $\Psi\ge0.2211$, the two cases of $L^2$ and the list of remainders); no gap was found in the published lemma.
+The steps (BE-a) (the formula for $\sigma^2G$), (BE-1) (mean square of the cross term), (BE-2) (the bound of $M_G$), the choice of $c$ and $\Lambda$ in (BE-3) and the formula for $\rho_W$ are used as published.
+
+\begin{table*}
+\caption{Where Lemma~BE of~\cite{H} uses its two limits, and the form used in Proposition~\ref{prop:BE}.}
+\label{tab:BEplaces}
+\begin{ruledtabular}
+\small
+\begin{tabular}{p{0.14\textwidth}p{0.3\textwidth}p{0.2\textwidth}p{0.28\textwidth}}
+place & published text & published code & Proposition~\ref{prop:BE}\\ \hline
+$1-e$ & $y\ge4.99\times10^{-5}$, so $1-e\ge y/(2+y)\ge2.49\times10^{-5}$ & \code{y\_min}, \code{one\_m\_e} & $1-e\ge y/(2+y)=(1-b)^2/(4B+(1-b)^2)\ge(1-b)^2/(4B+1)$\\
+$\sigma^2/(1-e)$ & $\le\sigma^2+4b/(1-b)^2\le4.01\times10^4\sigma^2$ & \code{4.01e4*sig\_hi**2} & $\sigma^2(1+4B/(1-b)^2)$, $B\le8\ell+100$\\
+case $L^2<1$ & $\sigma^2\Jww>0.6\sigma^2\ge6\times10^{-5}b$ & \code{ratio\_bJ = 10**4/0.6} & $b=B\sigma^2<B\sigma^2\Jww/(1-\varepsilon_1)$\\
+window constant & $U_1\le29.4$ & \code{U\_consts(6907.76)} & $U_1(\ell)$, no upper limit; $\sigma^2(U_1^2+\frac12)$ decreases in $\ell$\\
+remainders & ``below $10^{-10^7}$ times'' their comparison quantity ($\tau\ge5\times10^7$; ``at most $\sigma^{-2}$ against $0.6\sigma^3$'') & \code{check\_remainders} & $\sigma^2\times$ a $\sigma$-free ratio, against the main term of each case; $\tau\ge\tau_0(\ell)$\\
+$\nu_k$ & $\nu_k\le2.0000001e^{-0.499999\tau}$, $\tau\ge5\times10^7$ & \code{log10\_nu\_bound} & the same for $\tau\ge60$ (Lemma~\ref{lem:nu})\\
+\end{tabular}
+\end{ruledtabular}
+\end{table*}
+
+\subsection{The eleven remainders}
+
+Notation of Sec.~\ref{sec:verywide}; $\nu=\bar\nu(\tau)$, $x=\tau B\sigma^2$, $b=B\sigma^2$, $\sqrt xN_1\le U_1$, and the window constants $U_1$, $\gamma_P$, $c_\chi$ of App.~\ref{app:A}.
+Each remainder is $\sigma^2$ times a term $T_i=K_iB^{a_i}$.
+The tables give the original form, the form divided by $\sigma^2$, the power $a_i$ of $B$, and the value at $(\ell,\tau,B)=(960.8,\tau_0(960.8),8\ell+100)=(960.8,67.4711,7786.4)$.
+At this point $U_1=10.9679$, $\gamma_P=1300.87$, $c_\chi=11.0477$ and $\bar\nu(\tau_0)=4.47\times10^{-15}$.
+
+\begin{table*}
+\caption{The remainders of Proposition~\ref{prop:BE}. (A) From the proof of Lemma~23 of~\cite{F} ($a_4$ is replaced by Lemma~A4* and enters $c_1$ through $\delta_4$). (B) The term proportional to $\Phi$ in the statement of Lemma~23 of~\cite{F}, with $\Phi\le2$. (C) Added by the replacement of the cross term and the sandwich (not in~\cite{F}).}
+\label{tab:rem}
+\begin{ruledtabular}
+\small
+\begin{tabular}{p{0.06\textwidth}p{0.3\textwidth}p{0.36\textwidth}p{0.04\textwidth}p{0.12\textwidth}}
+term & original form & divided by $\sigma^2$ & $a_i$ & value\\ \hline
+\multicolumn{5}{l}{(A) from the proof of Lemma~23 of~\cite{F}}\\
+$a_1$ & $\frac38\sigma^2\Qb\nu_0$ & $\frac38\Qb\nu$ & $0$ & $4.19\times10^{-16}$\\
+$a_2$ & $b(1+\Qb)\sigma c_\chi\nu_0(1+\Qb/2)$ & $B(1+\Qb)(1+\Qb/2)\sigma c_\chi\nu$ & $1$ & $<10^{-400}$\\
+$a_3$ & $b\Qb\sigma^2\tau^2\nu_2/(8x)$ & $\Qb\tau\nu/8$ & $0$ & $9.42\times10^{-15}$\\
+$a_5$ & $\sigma^2\nu_0(1+\Qb)\gamma_P$ & $(1+\Qb)\gamma_P\nu$ & $0$ & $7.27\times10^{-12}$\\
+$a_6$ & $\nu_1(xN_1\sigma c_\chi+\sigma\sqrt x(1+\Qb)\gamma_P/\sqrt2)$ & $\sqrt{\tau B}(U_1c_\chi+(1+\Qb)\gamma_P/\sqrt2)\nu$ & $\frac12$ & $4.12\times10^{-9}$\\
+$a_7$ & $\frac12x\Qb\nu_2(1+\Qb)\sigma c_\chi$ & $\frac12\tau B\Qb(1+\Qb)\sigma c_\chi\nu$ & $1$ & $<10^{-400}$\\
+$a_8$ & $\Qb\sigma^2\tau^2\nu_4/8$ & $\Qb\tau^2\nu/8$ & $0$ & $6.36\times10^{-13}$\\
+$a_9$ & $\sigma^2x\Qb\nu_2/(2(1-\nu_0))$ & $\tau B\sigma^2\Qb\nu/(2(1-\nu))$ & $1$ & $<10^{-400}$\\
+$a_{10}$ & $\sigma\tau\sqrt x\Qb\nu_3/(2\sqrt2)$ & $\tau\sqrt{\tau B}\Qb\nu/(2\sqrt2)$ & $\frac12$ & $1.94\times10^{-11}$\\
+\multicolumn{5}{l}{(B) in the statement of Lemma~23 of~\cite{F}}\\
+$\Phi$-term & $\frac12b\Qb(\nu_0+\tau\nu_2)\Phi$ & $B\Qb(1+\tau)\nu$ & $1$ & $5.96\times10^{-10}$\\
+\multicolumn{5}{l}{(C) added by the replacement and the sandwich}\\
+$\nu$-sandwich & $(\rho_W+\delta_4)\frac12b\tau\Qb\nu_2/(1-\nu_0)$ & $(\rho_W+\delta_4)B\tau\Qb\nu/(2(1-\nu))$ & $1$ & $2.35\times10^{-11}$\\
+\end{tabular}
+\end{ruledtabular}
+\end{table*}
+
+The term (C) is the part proportional to $b$ that appears when the sandwich $W_{\rm per}\le((1+z)W+\frac12b\tau\Qb\nu_2)/(1-\nu_0)$ is inserted into $\rho_W(1-e)W_{\rm per}$ (from Lemma~BE) and $\delta_4(1-e)W_{\rm per}$ (step (3) of Sec.~\ref{sec:verywide}, new here); the parts proportional to $W$ are in $c_1$.
+The same sandwich applied to $\sigma^2W_{\rm per}$ gives $a_9$.
+The bound $b(1-e(1-y))\le\frac34\sigma^2$ used in $a_1$ holds for every $B$: $1-e^{-y/2}(1-y)\le3y/2$ (the difference has derivative $\frac32-e^{-y/2}(3-y)/2\ge0$), and $b\cdot3y/2=\frac34(1-b)^2\sigma^2$.
+A check by hand: the largest term $a_6$ is about $\sqrt{67.5\times7786}\,(11.0\times11.1+1.25\times1301/\sqrt2)\times4.5\times10^{-15}\approx725\times1272\times4.5\times10^{-15}\approx4.1\times10^{-9}$.
+
+\subsection{Monotonicity and the one-point values}
+
+Lemma~\ref{lem:R} reduces the suprema over $(\ell,\tau,B)$ to one point, by monotonicity in $B$, then $\tau$, then $\ell$ (its proof is in Sec.~\ref{sec:verywide}).
+The facts it uses about the window constants are proved by formula: $U_1/\sqrt\ell=\Qb\sqrt{2+3.1/\ell}+10^{-6}/\sqrt\ell$, $c_\chi/\sqrt\ell$, $\gamma_P/\ell$ and $(8\ell+100)/\ell$ decrease in $\ell$, and terms with $\sigma=e^{-\ell}$ appear as $e^{-\ell}\ell^{3/2}$, which also decreases; so $C(\ell)/\ell^{3/2}$ does not increase.
+For (R-1) the order of evaluation is: every term at $B=\bar B=8\ell+100$; terms with $a_i=1$ divided by $\bar B$; terms with $a_i=\frac12$ divided by $\sqrt{\bar B}$ and multiplied by $\sqrt M$; terms with $a_i=0$ multiplied by $M=1+\tau/(5\times10^{11})$.
+The same quantity assembled directly from the $\bar K_i$ by an independent computation agrees (\code{ds\_check.py}).
+
+Values at the point, in outward-rounded interval arithmetic with the watch (\code{dr\_be.py}): $\rho_2\le4.76\times10^{-9}$, $\rho_1\le5.49\times10^{-11}$, $\rho_W\le0.0801$, $c_1\ge0.919999$, $\frac12c_1(1-b)^2\ge0.459999$, $c_J\ge0.874999$, $\Psi\ge0.22119$, $\frac12c_2\Psi-\frac12\rho_1\ge0.05529$, $\varepsilon_1\le6.70\times10^{-15}$; the tail of $\bar\nu$ for $\tau\ge60$ is at most $1.32\times10^{-38}$.
+For Theorem~\ref{thm:verywide} with $\tau<\tau_0(\ell)$, $\ln(c_P/(\sigma\Gamma_\ell))\ge947.1$ at $\ell=960.8$, with derivative in $\ell$ above $0.99$.
+On a grid of $10{,}245$ points ($\ell\in[960.8,9.6\times10^{14}]$, $\tau\in[\tau_0(\ell),1400]$, $B/(8\ell+100)\in\{1,0.5,0.1,10^{-2},10^{-4}\}$) the largest $\rho_1$, $\rho_2$ are at the corner \numst; with $\tau_0=2\ln\ell+10$, $\rho_2\ge8.40$, and with $\bar\nu\propto e^{-\tau/4}$, $\rho_2\ge0.100$, so the check sees a wrong version.

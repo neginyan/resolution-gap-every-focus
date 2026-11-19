@@ -1,0 +1,64 @@
+\section{Limits and outlook}
+\label{sec:limits}
+
+\subsection{The status of every statement}
+
+Table~\ref{tab:status} lists every statement used for Theorem~\ref{thm:main} with its status and origin.
+Two of the five theorems are proofs in the strict sense; Theorems~\ref{thm:narrow}, \ref{thm:wide} and Theorem~H1 of~\cite{H} are computer-assisted, so Theorem~\ref{thm:main} is computer-assisted.
+It assumes condition (P6) through the factor $1-\bar\varepsilon$.
+
+\begin{table*}
+\caption{Every statement of the chain, with its status and origin. ``Borrowed'' statements are proved in the cited paper and used as stated there.}
+\label{tab:status}
+\begin{ruledtabular}
+\small
+\begin{tabular}{p{0.42\textwidth}p{0.2\textwidth}p{0.26\textwidth}}
+statement & status & origin\\ \hline
+$g\ge(1-|\varepsilon|)((a)+(a'))$, $|\varepsilon|\le\bar\varepsilon$ & proof, assuming (P6) & borrowed: \cite{F}, Eq.~(3)\\
+Lemmas 19, 21--23 of~\cite{F} (period averages) & proof & borrowed: \cite{F}, App.~D\\
+Lemmas CM-1, CN-1 (second line), R$_\theta$, A4*, the steps of BE; window constants & proof & borrowed: \cite{H}, \Hsecs{III, VI, VII, IX~A}\\
+Theorem~H1 & proof, computer-assisted & borrowed: \cite{H}, \Hsec{VIII}\\
+Lemma~\ref{lem:lines} (the lines; local lemmas of App.~\ref{app:A}) & proof for $y\le10^{-40}$; for $y\le10^{-4}$ the constants $M_1$, $M_2$, $M_4$ computer-assisted & new\\
+Lemma~\ref{lem:M12} & (i) proof; (ii) computer-assisted & new\\
+Lemma~\ref{lem:M0} & proof & new\\
+Lemma~\ref{lem:Hprime} (brightness hypothesis) & proof & new (uses CM-1, CN-1)\\
+Lemma~\ref{lem:DI} (closed forms, $E_J$) & proof & new\\
+Lemma~\ref{lem:G0} ($G=0$) & proof & new\\
+Proposition~\ref{prop:narrow}, Theorem~\ref{thm:narrow} & proof, computer-assisted & new\\
+Proposition~\ref{prop:res}, Theorem~\ref{thm:res} & proof & new\\
+Lemma~\ref{lem:M4} & proof; (iii) computer-assisted & new\\
+Proposition~\ref{prop:wide}, Theorem~\ref{thm:wide} & proof, computer-assisted & new\\
+Lemmas~\ref{lem:nu}, \ref{lem:R}, Proposition~\ref{prop:BE} & proof (values checked in interval arithmetic) & new (core from Lemma~BE)\\
+Lemma~\ref{lem:P} & proof & new\\
+Theorem~\ref{thm:verywide} & proof & new\\
+Theorem~\ref{thm:main} & proof, computer-assisted, assuming (P6) & new\\
+everything in Sec.~\ref{sec:break} & numerical & new\\
+\end{tabular}
+\end{ruledtabular}
+\end{table*}
+
+\subsection{What is not covered}
+
+\begin{itemize}
+\item \emph{Windows with a stronger ripple.} Theorem~\ref{thm:main} assumes $\eta\le1/\ell$, which enters Theorems~\ref{thm:narrow}--\ref{thm:wide} through the sandwich factors $1/(1\pm\eta)$ written into the lines and Theorem~H1 through its item~(i). Theorem~\ref{thm:verywide} does not need it, so the very wide focus is settled for every window of the class. In the other regions, windows with $\eta>1/\ell$ are outside this paper, except for those covered by items (ii)--(iii) of Theorem~H1 of~\cite{H} at $\tau\ge20$ and $\ell\le960.8$.
+\item \emph{The class constant.} Every bound on $g$ carries $1-\bar\varepsilon$ from (P6). Its value for band windows is open (the third-order terms~\cite{H}). Our statements on $(a)+(a')$ do not depend on it.
+\item \emph{The regime.} We work in $5\times10^{11}\sigma^2\le x\le0.003$. Larger $x$ is covered by Theorem~48 of~\cite{F} (for $\sigma\le10^{-24}$); smaller $x$ is not treated here. The lower end is used through the window constant $U_1$ and, in Theorem~\ref{thm:verywide}, through $\tau B\ge5\times10^{11}$.
+\item \emph{Moderate resolution.} For $55.26\le\ell<960.8$ and $B<2.5\times10^{10}$ the bound is that of Theorem~H1, $g\sqrt\ell\ge1-\bar\varepsilon$, without the factor $\sqrt{1+10/\ell}$.
+\item \emph{The upper side.} The law has two sides; this paper extends only the lower one. The upper side is that of~\cite{F}.
+\item \emph{Computer assistance.} Theorems~\ref{thm:narrow} and~\ref{thm:wide} rely on finitely many interval-arithmetic evaluations (Table~\ref{tab:ca}). They can be rerun with the code that accompanies the paper, and they rest on the correctness of the arithmetic described in Sec.~\ref{sec:ca} and App.~\ref{app:C}. The certificates of Theorem~H1 rely on the assumption that the floating-point elementary functions (log, exp, log1p, expm1 and the square root) are accurate to within 2 ulp; the assumption and the measured errors (at most 0.71 ulp) are stated in App.~E of~\cite{H}. The computer-assisted parts of this paper do not use this assumption: they are decimal interval arithmetic with outward rounding, and the double-precision evaluations in the accompanying code are numerical checks only.
+\item \emph{Numerical evidence at small $\ell$.} The comparisons with the true quantities (Sec.~\ref{sec:break}) are at $\ell\le10$; in the range of the theorems only the proofs speak.
+\end{itemize}
+
+\subsection{Outlook}
+
+\begin{itemize}
+\item \emph{Sharper constants.} The proof of Theorem~\ref{thm:res} reaches $\gamma=0.72$ against the numerical $0.7377$; a joint treatment of $P_1$, $k_1$ and $k_2$ might close the gap. The constant $0.459$ of Proposition~\ref{prop:BE} is within about $20\%$ of the states we can measure.
+\item \emph{Lemma~\ref{lem:P} with more periods.} Moving the hidden weight three or more periods may improve $\theta=e^{-10\pi^2/\tau}/5$, at the cost of a stronger disjointness condition and a faster Gaussian decay. The theorem does not need it.
+\item \emph{The true size of $N_\phi$.} The measurements suggest $N_\phi\ge(b+W)/(8B)$ up to a factor close to one \conjst; a proof would make Lemma~\ref{lem:P} sharp.
+\item \emph{Windows with a stronger ripple} \status{outlook, not a claim}. Every window of the class has $\eta\le\Qb=\frac14$, so its sandwich factors satisfy $\lambda/\Upsilon=(1-\eta)/(1+\eta)\ge\frac35$. Theorem~\ref{thm:verywide} does not use $\eta\le1/\ell$, and items~(ii) and~(iii) of Theorem~H1 of~\cite{H} already hold with the factor $\lambda/\Upsilon$ in place of $\eta\le1/\ell$. For Theorem~\ref{thm:res}, an estimate in floating point with $\eta=\frac14$ in every line leaves a margin of about $0.50$ with the target coefficient one (at $b=1$, $\ell=55.26$) \numst. For Theorems~\ref{thm:narrow} and~\ref{thm:wide}, the sandwich factors of the gains and of the denominator cancel against the target $\lambda/\Upsilon$, but five places do not: the background remainders $\varepsilon_1$ and $\varepsilon_h$, the factor $k_1$ of the denominator, the factors $1/(1-\eta)$ on the side of the losses, and one step of the group FrB1, which fails at $\eta=\frac14$ unless the coefficient $X_1$ is enlarged. The rule constants $c_1$, $c_T$ and $c_{\rm ch}$ then have to be chosen again; in the same estimate the main conditions keep positive margins with $c_1\approx0.62$, $c_T\approx6.5$ and $c_{\rm ch}\approx1.7$ \numst. If the lines are rewritten with the remainders bounded uniformly at $\eta=\frac14$ and the sandwich factor $\lambda$ only on the main gains, each line is affine in $\lambda$, and the scaling step of~\cite{H} would give every $\lambda\in[\frac35,1]$ from the two ends $\lambda=1$ and $\lambda=\frac35$. This would give the law with coefficient $\lambda/\Upsilon\ge\frac35$ for every window of the class. It is work for a later paper; nothing in this item is claimed.
+\item \emph{Towards general states} \status{outlook, not a claim}. Paper~F splits Conjecture~1 of Paper~E into three cases (Theorem~16 of~\cite{F}, the case split). Cases~1 and~2 are proved there; Case~3 is reduced to Conjecture~18 of~\cite{F}, the visibility inequality $\keff^2\le\frac12\ln(1/Q)+C$, which with a floor $Q\ge\sigma^2/C$ would give Conjecture~1 with constant $\frac12$. In Case~3, by the localisation Lemma~17 of~\cite{F}, $\E_{\pi_v}[d(m_z)^2]\le(\pi^2/2)\theta=(\pi^2/8)QW_2$: the slope information hides near the points where the phase mismatch vanishes, within a root-mean-square distance $\ll\sqrt{W_2/\ls}$. Lemma~\ref{lem:P} handles exactly this hidden weight for periodic windows, and carries it outward by positivity and periodicity; both arguments rest on the same inequality $1-\cos t\ge(2/\pi^2)d(t)^2$, with $d(t)$ the distance to $2\pi\mathbb Z$. In states whose ripple does not repeat, a replacement for the shift by one period would bring Conjecture~18 closer. Lemma~CM-1 of~\cite{H} (\Hsec{IX~A}), $xE_1\le(1+b/2)E_0\ln(2B_0/E_0)+(\sqrt2/e)bE_0'$, bounds the square of the local wavenumber, $\mu=xE_1/E_0$, by the logarithm of the inverse brightness, the same shape as Conjecture~18; its proof uses only $f\ge0$, the analytic continuation of the Gaussian-blurred profile and Paley--Wiener. Extending that method to two-dimensional general states, and the outward shift of Lemma~\ref{lem:P}, are two candidate tools for Conjecture~18. Nothing in this item is claimed.
+\end{itemize}
+
+\emph{Picture.}
+The map of states is closed for windows with a weak ripple: wherever the observer focuses and however fine her lens, the information that survives the blur is at least the fraction $(1-\bar\varepsilon)/\sqrt\ell$.
+What remains open is not a region of the map but the shape of the windows: how strong a ripple the law tolerates, and how small $\bar\varepsilon$ is.

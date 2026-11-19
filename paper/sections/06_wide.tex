@@ -1,0 +1,75 @@
+\section{Wide focus (Theorem~\ref{thm:wide})}
+\label{sec:wide}
+
+\subsection{Statement}
+
+\begin{proposition}[wide focus, line form] \caproofst{App.~\ref{app:C}}
+\label{prop:wide}
+Let $\ell\ge960.8$.
+Let a state satisfy $\mu>0$, $\sigma^3\le r\le\tfrac14$, $8\ell+100\le B<\ell^4$, $b\le\tfrac12$, $\kappa>0$, and let $P>0$ satisfy (H$'$).
+Then for every $a\in(0,4r/\sigma]$ the option chosen by the rule of Sec.~\ref{sec:narrow} (same constants $c_1$, $c_T$, $c_{\rm ch}$, $a_s$) satisfies $\Lambda_k(a)\ge0$ with $\gamma=\Gamma_\ell$.
+\end{proposition}
+
+Theorem~\ref{thm:wide} follows exactly as Theorem~\ref{thm:narrow} does (Lemma~\ref{lem:lines} for $G>0$, Lemma~\ref{lem:G0} for $G=0$).
+For $\ell\ge960.8$, $\ell^4\ge8.5\times10^{11}$, so the proposition overlaps Proposition~\ref{prop:narrow} and covers the band $2.5\times10^{10}\le B<50(8\ell+100)$ that Proposition~\ref{prop:narrow} leaves for $\ell>6.25\times10^7$.
+The upper end $\ell^4$ is used in one step only, (b.5).
+
+The focus is wide: $\tau=x/b\ge5\times10^{11}/B$, and the focus spans many periods.
+What makes the proof of Sec.~\ref{sec:narrow} work here is that it never uses the smallness of $b$ directly.
+The lower end $B\ge2.5\times10^{10}$ entered only through constants, and the lower end $B\ge50(8\ell+100)$ only through the uniform bounds $q\le0.0026$, $z_2\le0.01$.
+
+\subsection{The lines down to $B=8\ell+100$}
+
+For the lines to be lower bounds (Lemma~\ref{lem:lines}) we need $z_0^2\le1$, $1-q>0$ and one constant of the main-term identity, which was established for $y\le10^{-6}$ and is needed here for $y=(1-b)^2/(2B)\le1/(2(8\ell+100))<6.5\times10^{-5}$.
+
+\begin{lemma}[the constant $M_4$] \status{(i)--(ii) proof; (iii) proof, computer-assisted}
+\label{lem:M4}
+Let $f(u,y)=e^{-u/2}\bigl[\tfrac{1+u}2(1+u\cosh\sqrt{yu})+\cosh\sqrt{yu}\bigr]$ and $M_4(y)=\sup_{u\ge0}f(u,y)$.
+(i) The quantity $\Xi$ of the main-term identity satisfies $|\Xi|\le\Qb M_4(y)\,y$.
+(ii) $M_4$ is non-decreasing in $y$.
+(iii) $M_4(10^{-4})\le2.0475\le2.07$.
+\end{lemma}
+
+\begin{proof}
+Put $c=\sqrt{yu}$.
+(i) $1-e^{-y/2}\cosh c\le1-e^{-y/2}\le y/2$, and $e^{-y/2}\cosh c-1\le\cosh c-1\le(c^2/2)\cosh c$; so $|1-e^{-y/2}\cosh c|\le(y/2)(1+u\cosh c)$. With $ye^{-y/2}\cosh c\le y\cosh c$ the single term is at most $y f(u,y)$, and the sum over harmonics with $\sum q_n\le\Qb$ gives (i).
+(ii) For fixed $u$, $\cosh\sqrt{yu}$ is non-decreasing in $y$ and enters with positive coefficients.
+(iii) On $u\in[0,60]$, pieces of width $0.005$ ($[0,20]$) and $0.05$ ($[20,60]$) bound $f$ by its decreasing and increasing parts at the ends of each piece, in interval arithmetic; the largest bound is $2.04742$. For $u\ge60$, $f\le e^{-0.4987u}((1+u)^2/2+1)$, which decreases and is below $1.9\times10^{-10}$ at $u=60$.
+\end{proof}
+
+All other places where $y$ enters (the background lines, the pair lemma, the lines B1w) hold for every $y\le1$ \proofst.
+So the lines are lower bounds for $B\ge8\ell+100$ with the constant $2.07$ unchanged.
+
+\subsection{Proof: the same steps, other constants}
+
+The steps (F), (R), Case~I, (c), (II-ch), (II-s), (m1)--(m4) of Sec.~\ref{sec:narrow} are used as they stand.
+On a piece $[\ell_a,\ell_b]$ of $\ell$, with $B_m=8\ell_a+100$ the lower bound of $B$ on the piece, five constants are replaced:
+\begin{itemize}
+\item $q\le(1+\eta)/(8(1-\eta))$ and $z_2\le\tfrac12$ (instead of $0.0026$ and $0.01$);
+\item $\mathrm{es}=0.25/B_m$ in (R1) and (R3); at $\ell=960.8$ the sum of (R1) is $0.50042\,\mathrm{es}$;
+\item $e_0=2/\sqrt{B_m}+\mathrm{es}$ in (R4) ($e_0=0.022697$ at $\ell=960.8$, against $1.26\times10^{-5}$ in Sec.~\ref{sec:narrow});
+\item $B_m$ inside $\omega$, $c_S$, $c_{1F}$ and $\bar\varrho$;
+\item in (m4), $B<\ell^4$ closes the argument by (b.5) alone, so the conditions (N), (N0) and (F) are not used.
+\end{itemize}
+Some numbers of Sec.~\ref{sec:narrow} are written into the formulas and hold only for $z_2\le0.01$ or $q\le0.0026$.
+They were found by reading the source line by line and replaced by arguments: $k_f\ge0.999$ in (b.5) becomes $k_f\ge(1-b)^2(1-4b/(1-b)-z_2/12)$ (with $\ell^4\sigma^2\le10^{-100}$ checked), $1/\sqrt{c_0}\ge0.999$ becomes $(m_2(1-q))^{1/4}$, the factor $2.1$ in $\mathrm{A2k}\le2.1b^2\mathrm{cKz}$ is checked as a condition (its value is $2.0915$), and three smallness claims of (II-ch), (II-s) and Case~I are checked as conditions.
+Two independent counts of the written-in numbers find none missing.
+At $z_2\le\tfrac12$ some constants move: in Case~I with Tz-B2, $k_f\ge0.4162$ and $\mathrm{A2k}\le0.0482\,\mathrm{cKz}$ at $\ell=960.8$.
+
+\subsection{The computer-assisted part}
+
+The constants and conditions are evaluated by the same interval arithmetic as in Sec.~\ref{sec:ca}, built from the source of the computation of Sec.~\ref{sec:narrow} with only the quantities above turned into arguments (with the old values it reproduces that computation to $2.2\times10^{-36}$), on $[960.8,10^6]$ cut into $6{,}952$ pieces and on the tail \caproofst{App.~\ref{app:C}}.
+$35$ conditions are checked on each piece; none fails on any of the $6{,}953$ pieces.
+The smallest margins are at $\ell=960.8$: Case~I with Tz-B2 $0.0023301$, Case~I with Fz $0.07874$, (II-ch) $0.038309$, and the absorption of the constant lines uses $0.96287$ of $e_0$.
+Each of four deliberately wrong versions ($e_0:=\mathrm{es}$; $z_2>1$; the rule constant $c_1=0.95$; $B_m=100$) fails on all four test pieces.
+
+\emph{Where the end $8\ell+100$ comes from.}
+The constants alone go much lower: all conditions hold with $B_m=10^3$, and Case~I with Fz fails first at $B_m=300$.
+The end $8\ell+100$ is the end of the lines: below $B=(8\ell+100)/2$ the ring radius $K^2=8\ell+100$ violates $z_0^2=K^2y\le1$.
+The searches of Sec.~\ref{sec:break} see this: below that end the sum of the lines becomes negative for every $\gamma$, which is not a counterexample, because there the lines are not lower bounds.
+This is where Theorem~\ref{thm:verywide} takes over.
+
+\emph{Picture.}
+A wide focus spans many periods, so the brightness of the ripple is spread over it ($\kappa\approx1$), and the phase turns appreciably between the centre and the edge of the focus.
+The chirp gain $\chi G$ grows like $\kappa\sigma/b$, that is, like the width of the focus, and exceeds the apparent darkening of the ripple by orders of magnitude.
+So the hardest states of this region are its narrowest ones, at the border with Theorem~\ref{thm:narrow}; widening the focus only helps (Sec.~\ref{sec:break}).

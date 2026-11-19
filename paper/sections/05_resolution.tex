@@ -1,0 +1,65 @@
+\section{Focus at the resolution (Theorem~\ref{thm:res})}
+\label{sec:res}
+
+\subsection{Statement}
+
+\begin{proposition}[focus at the resolution, line form] \proofst
+\label{prop:res}
+Let $\ell\ge55.26$.
+Let a state satisfy $\tfrac12<b\le1$, $\mu>0$, $\sigma^3\le r\le\tfrac14$, $\kappa>0$, and let $P>0$ satisfy (A), (K) and (CM) of Lemma~\ref{lem:Hprime}.
+Then for every $a>0$ and every $\gamma\in[0,0.6]$ the lines of the option Fz satisfy $\Lambda_{\rm Fz}(a)\ge0$.
+\end{proposition}
+
+Neither (J) nor the range of $a$ is used.
+The numbers below are values at $\ell=55.26$; every quantity that enters ($\varepsilon_1$, $\varepsilon_h$, $\Gamma_\ell$, $k_1$, $k_2$ and the terms with $\sigma$) decreases with $\ell$ and $\theta$ increases, so $\ell=55.26$ is the worst case.
+The same numbers were also evaluated by interval arithmetic on $[55.26,\infty)$ as one piece.
+
+\begin{proof}[Proof of Theorem~\ref{thm:res} from Proposition~\ref{prop:res}]
+If $G>0$, Lemma~\ref{lem:lines} (option Fz, valid for $b\in(\tfrac12,1]$) and Proposition~\ref{prop:res} with $\gamma=0.6$ give $(a)+(a')\ge0.6$.
+If $G=0$, Lemma~\ref{lem:G0} with $b\le1$ gives $(a)+(a')\ge C_0=0.1995$.
+Both exceed $\Gamma_\ell\le0.1462$.
+\end{proof}
+
+\subsection{What changes when $b>\tfrac12$}
+
+The pair lemma needs $\delta=2b/(1-b)\le2$, which fails as $b\to1$; with it go the chirp, the line hFz and the branches B1, B2, and $\mathrm{brk}=1-4b/(1-b)-z_2/12$ is negative for $b>0.2$.
+The other local lemmas use only $1-b\ge0$ and $y\le10^{-4}$, and $y\le\sigma^2/4<10^{-48}$ here, where their three constants are bounded by hand (Lemma~\ref{lem:M0}); so no step of this section is computer-assisted.
+So only the option Fz is available.
+It is enough, because a focus this narrow sees a dark ripple: the rule would always be in Case~I ($G\le0.2943$ while $c_1\sqrt b/\Gamma_2\ge7.4$).
+The option Fz does not use the pair lemma; its lower bound subtracts the positive tail line ``pair'' in addition, which only weakens it.
+
+\subsection{Proof}
+
+\begin{itemize}
+\item[(F1$'$)] In (CM), $B_0(1/16,1)=(1+1/4+(1/32)^{1/3})^2\le2.4492$, so $P\le P_1=2[(1.5/16)\ln(32B_0(1/16,1))+c_{\rm CM}]\le0.8829$ and $G\le P_1/3\le0.2943$.
+\item[(R1$'$)] N1 $=\varepsilon_1(r)$P1 with $\varepsilon_1\le0.01457$; the other L-lines are at most $e_L$P1 with $e_L\le7\times10^{-17}$; d4$+$N4G $\le\mathrm{es}_\sigma$P2z.
+\item[(R2$'$)] hneg1 $=\varepsilon_h(r)$P4z, $\varepsilon_h\le0.1808$.
+\item[(R3$'$)] The S-lines are at most $e_S$P4z ($a\le1$) or $e_S$P1 ($a\ge1$), $e_S\le3.1\times10^{-13}$. Put $e_2=10^{-12}\ge e_L+e_S$.
+\item[(R4$'$)] $\mathrm{N3}+\mathrm{M0Xi}+\mathrm{A1v}+\mathrm{pair}\le1.86\sigma$.
+\item[(R5$'$)] (K) gives $\kappa G\le\tfrac23U_1^2$ and $\sqrt\kappa\,G\le\sqrt{2P_1}U_1/3$, so $\mathrm{FzK}+\mathrm{A2k}+\mathrm{B2a}\le0.048\,\ell\sigma\le\ell\sigma$.
+\end{itemize}
+Hence, for every $a>0$,
+\begin{equation}
+\begin{split}
+\Lambda_{\rm Fz}(a)\ \ge\ &(1-\varepsilon_1-e_2)\frac a2+(1-\varepsilon_h-e_2)\frac{b\omega/2}{a+\sigma}\\&+(1-\mathrm{es}_\sigma)\mathrm{P2z}+\mathrm{P3z}-\gamma bk_1-\gamma k_2G-(1.86+\ell)\sigma .
+\end{split}
+\end{equation}
+Since $Xa+Y/(a+\sigma)\ge2\sqrt{XY}-\sigma/2$ for $X\le\tfrac12$, with $\theta=\sqrt{(1-\varepsilon_1-e_2)(1-\varepsilon_h-e_2)\omega}\ge0.8984$,
+\begin{equation}
+\Lambda_{\rm Fz}(a)\ \ge\ \theta\sqrt b-\gamma k_1b-\gamma k_2P_1/3-(2\ell+\tfrac12)\sigma,
+\end{equation}
+with $k_1\le1.0904$ and $k_2\le0.50922$.
+The right side is concave in $b$, so its minimum over $[\tfrac12,1]$ is at an end.
+With $\gamma=0.6$: at $b=1$ it is $0.8984-0.6542-0.0899-10^{-22}\ge0.154$, and at $b=\tfrac12$ it is $0.6353-0.3271-0.0899\ge0.218$.
+$\Lambda_{\rm Fz}$ decreases in $\gamma$ (only the target lines d1--d4 contain $\gamma$), so the bound holds for all $\gamma\in[0,0.6]$.
+\qed
+
+\emph{Sharpness.}
+The same proof works up to $\gamma=0.72$.
+The searches of Sec.~\ref{sec:break} find the smallest $\gamma^*=0.7377$ at $\ell=55.26$, $b=1$, $r=\tfrac14$, brightness at its ceiling \numst; the proof is close to sharp.
+The interval check gives $P_1\le0.882811$, $\theta\ge0.898501$ and the margins $0.15437$ ($b=1$) and $0.21831$ ($b=\tfrac12$); with $\gamma=0.75$, or without (CM), the bound at $b=1$ is negative.
+
+\emph{Picture.}
+Here the focus is only $1$ to $1.4$ times the resolution and sees less than $1/80$ of a period ($\tau\le0.006$).
+At this narrowness positivity makes the ripple dark, and the two background lines, the information in $w$ and the background in $v$, carry $g\ge0.6(1-\bar\varepsilon)$, four times what the law asks.
+The law is not tight here.

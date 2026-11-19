@@ -1,0 +1,117 @@
+\section{Interval arithmetic: constants and conditions}
+\label{app:C}
+
+\subsection{The arithmetic and why it encloses}
+
+Intervals $[\mathrm{lo},\mathrm{hi}]$ have endpoints that are Python \code{decimal} numbers with $40$ digits (or $\pm\infty$); the code is \code{dl\_interval.py}.
+Every operation is carried out in a fixed context (\code{prec=40}, exponent range $10^{\pm10^{17}}$, rounding half-even, only \code{InvalidOperation} trapped), and its result is widened outward by a relative $10^{-38}$.
+\begin{itemize}
+\item Sums, differences, products and quotients are rounded by \code{decimal} to the context precision, with error at most half a unit in the last digit, a relative $5\times10^{-40}$. \code{exp}, \code{ln} and \code{sqrt} are documented as correctly rounded (half-even). The power function of the C implementation is only ``almost always'' correctly rounded, so it is never used for intervals: integer powers are repeated interval products, and other powers are $\exp(p\ln x)$.
+\item The widening by $10^{-38}$ is about twenty times the rounding error, so the lower end of every result is below the true value and the upper end above it. Monotone functions ($\exp$, $\ln$, $\sqrt{\ }$ and the special functions below) are evaluated at the ends and widened in the same way. Products take the minimum and maximum of the four end products; the inverse of an interval that contains $0$ raises an exception.
+\item Functions that increase and decrease at once are written through functions whose monotonicity is proved by one derivative: $\mathrm{pe}(k,x,c)=x^ke^{-cx}$ (increasing on $(0,k/c]$, decreasing beyond), $H(x,L,a,b,c)=axL-b\ln L-c\ln x$ (increasing in $L$ when $axL\ge b$ and in $x$ when $axL\ge c$), $\ln L/L$ ($L\ge e$) and $\ln(1+U)/U$. This gives finite enclosures on the infinite piece $[10^6,\infty)$.
+\item No operation may round outside the context: while the interval functions run, the \code{Inexact} flag of the default context is trapped, so any rounding outside the 40-digit context stops the computation (the \emph{watch}). Two such places existed in an earlier version (a unary minus and one widening in the default 28-digit context); they were fixed, the watch is on in every computation of this paper, and it raises in the old version.
+\item A test of $8{,}100$ random intervals and points (positive, negative, across $0$, with $0$ or $\infty$ as an end, ends near $10^{-100000}$, differences of 40-digit ends) against $90$-digit values finds no enclosure failure, and catches each of four deliberately broken versions (no widening; inward rounding; inversion across $0$; the version before the fix) \numst.
+\end{itemize}
+
+\subsection{Proposition~\ref{prop:narrow}: 18 conditions, 48 numbers}
+
+\code{dl\_consts.consts\_iv}$(\ell_a,\ell_b)$ evaluates every constant of Sec.~\ref{sec:narrow} as an interval valid for all $\ell\in[\ell_a,\ell_b]$, with the formulas of the proof.
+Three kinds of changes against the point formulas were made: a condition multiplied by a growing positive factor is divided by it; the special functions above replace products of increasing and decreasing factors; and four bounds are replaced by forms valid on the tail ($\varepsilon_1'$ as a sum, $1-\prod(1-a_i)\le\sum a_i$; the second pass of (b.1); a certified lower bound $x_0$ found by bisection; and $a_0$ and (N0) on the tail).
+The interval $[55.26,10^6]$ is cut into $9{,}809$ geometric pieces of ratio $1.001$ (no piece needed a split), and $[10^6,\infty)$ is one piece.
+The constant $c_{\rm CM}$ enters as the interval $\sqrt{[2]}/(16\exp[1])$.
+Table~\ref{tab:cond18} lists the $18$ conditions with their smallest values; the $48$ quoted numbers are listed in Table~\ref{tab:quoted48}.
+No piece and not the tail fails.
+
+\input{sections/C_tables}
+
+\emph{A corrected written-in number.}
+The first pass of (b.1) writes two numbers into the formulas: $\mu P\le14.29$ and $\mu b/2\le9.549\,c_b$, where $P\le\min(\mu/8,9\mu e^{-0.4\mu})$ and $b<c_bP^2$.
+Both suprema are attained at $\mu^*=\ln72/0.4=10.6917$, where the two bounds of $P$ cross ($\mu^2e^{-0.4\mu}$ and $\mu^3e^{-0.8\mu}$ decrease for $\mu\ge5$): $\mu^{*2}/8=14.28897$ and $\mu^{*3}/128=9.54830$.
+Earlier stages had written $9.545$ for the second, which is $3.3\times10^{-3}$ too small; the computations of this appendix were re-run with $9.549$ (\code{du\_fix.py}), and every condition holds with the margins shown, which agree with the earlier run to the digits shown.
+
+\subsection{The absorptions (R1) and (R3)}
+
+The bounds of (R1) and (R3) and the claims ``at most $\mathrm{es}_\sigma$'' of (R1) and (R7) are computed on $[55.26,\infty)$ as one interval: each bound increases in $1/\ell$ and in $\sigma=e^{-\ell}$, and is written so that it holds for all $\sigma^3\le r\le\frac14$, $B\ge2.5\times10^{10}$, $b\le\frac12$, $P\le0.7008$, $G/\mu\le g_s/8$ and, in Case~II, $\mu\le2\ell$ (\code{dp\_r1.py}).
+The formulas, from the coefficients of App.~\ref{app:B} divided by P1:
+$\mathrm{N2}/\mathrm{P1}=Q_2/(8B)\le(1+0.805/\ell)/(8\times2.5\times10^{10})\le0.507284\,\mathrm{es}$;
+$\mathrm{d3}/\mathrm{P1}=\Gamma\sigma(1+2\eta k_E)/2$;
+$\mathrm{N4}/\mathrm{P1}=\frac34\sigma^2[(X_1^2+\mathrm{CZ})Q_2+rM_{4c}]$;
+$\mathrm{ring2}/\mathrm{P1}\le\sigma^{5/2}\eta^2T_K/(16\sqrt2B(1-\eta))$ (using $r(2+r)\ge2\sigma^3$);
+$\mathrm{A2a}/\mathrm{P1}\le\sigma^2(1+\eta)/8$;
+$\mathrm{A2b}/\mathrm{P1}\le\sigma^{1/2}\eta^2/(16\sqrt2(1-\eta))$;
+$\mathrm{B2b}/\mathrm{P1}\le(\sqrt{0.7008}/4)(0.0895\sigma^2+\sigma^{1/2}\eta^2/(2\sqrt2(1-\eta)^2))$;
+$(\mathrm{d4}+\mathrm{N4G})/\mathrm{P2z}\le((1+\eta)/(1-q))[\Gamma\sigma/(2(1-\eta))+\frac32\sigma^2((X_1^2+\mathrm{CZ})/(2(1-\eta))+1.5/(32(1-\eta)))]$;
+$\mathrm{B1l}/\mathrm{P2z}\le\sigma^2\ell(1+\eta)/(64(1-\eta)(1-q))$;
+$\mathrm{B1c}/(\Gamma_2G)\le\sigma[(\sqrt{\mathrm{CZ}/(4\pi)}+\frac1{16}+\mathrm{CZ})+X_1^2]/(2\Gamma)$.
+The lower end $r\ge\sigma^3$ enters only through the factors $1/\sqrt r$ of A2b, B2b and ring2.
+Table~\ref{tab:R1R3} gives the results; the old ``half'' version ($0.5\,\mathrm{es}$), $B\ge2.4\times10^{10}$ and $r\ge\sigma^5$ each fail.
+
+\begin{table}
+\caption{(R1), (R3) and the small claims: upper bounds for all $\ell\ge55.26$ (one interval).}
+\label{tab:R1R3}
+\begin{ruledtabular}
+\small
+\begin{tabular}{p{0.5\columnwidth}p{0.22\columnwidth}p{0.14\columnwidth}}
+claim & bound & needed\\ \hline
+(R1) $(\mathrm{N2}+\mathrm{d3}+\mathrm{N4}+\mathrm{ring2}+\mathrm{A2a}+\mathrm{A2b}+\mathrm{B2b})/\mathrm{P1}$ & $0.507288\,\mathrm{es}$ & $0.52\,\mathrm{es}$\\
+(R3) $a\le1$: S-lines$/$P4z & $0.03084\,\mathrm{es}$ & $0.48\,\mathrm{es}$\\
+(R3) $a\ge1$: S-lines$/$P1 & $0.01542\,\mathrm{es}$ & $0.48\,\mathrm{es}$\\
+$c_S$ & $0.15403$ & $0.155$\\
+$X_1^2/\ell$ & $0.2285$ & $1$\\
+(R1) $(\mathrm{d4}+\mathrm{N4G})/\mathrm{P2z}$ & $2.49\times10^{-5}\mathrm{es}_\sigma$ & $\mathrm{es}_\sigma$\\
+(R1) $\mathrm{B1l}/\mathrm{P2z}$ ($\mu\le2\ell$) & $2.9\times10^{-28}\mathrm{es}_\sigma$ & $\mathrm{es}_\sigma$\\
+(R7) $\mathrm{B1c}/(\Gamma_2G)$ & $0.01545\,\mathrm{es}_\sigma$ & $\mathrm{es}_\sigma$\\
+\end{tabular}
+\end{ruledtabular}
+\end{table}
+
+\subsection{The full chain of step (m4)}
+
+Notation of Sec.~\ref{sec:narrow}; $\xi\ge\ell^2$ and $\Theta'<m_T+T$.
+\begin{itemize}
+\item[(b.0)] $\bar\varrho\le\sqrt{1.23/B+1/\ell^4}\le3.3\times10^{-4}$. From $\Theta'<m_T+T$, $\mu>x_0\ell$ with $x_0\ge0.1531$ ($\mu>8.46$).
+\item[(b.1), (b.2)] $P\le4\mu e^{-\mu}E_{\rm CM}$, $T\le\bar T:=t_c\frac43\mu e^{-\mu}E_{\rm CM}/\ell$, $\mu<\ell+\ln\ell$, and $\Theta'\ge0.3793$.
+\item[(b.3)] $U:=((m_T+\bar T)/\Theta')^2-1\in(0,5.96]$. If $u\ge U$ or $v\ge U$, then $\Theta'\sqrt{(1+u)(1+v)}\ge m_T+\bar T$ and the claim holds.
+\item[(b.4)] Otherwise $u,v<U$. From $u\ge(m_1/m_2)4\mu r/G\ge(m_1/m_2)\sqrt2\sqrt re^{\mu}/E_{\rm CM}$, $r<18.7E_{\rm CM}^2e^{-2\mu}\le10^{-6}$; then $k_E\le\sqrt r\le10^{-3}$ and $m_1,m_4,m_5\ge1-6\times10^{-4}$, which changes $u^3v\,\mathrm{ch}$ by a factor at least $0.997$.
+\item[(b.5)] $B<\ell^4$ (only for $\ell>397.6$, since $B\ge2.5\times10^{10}$). Then $\mathrm{ch}\ge c_k\kappa e^\ell\ell^{-7/2}$, $c_k\ge0.1107$; unless $\mathrm{ch}\ge m_T+\bar T$, $\kappa<(m_T+\bar T)\ell^{7/2}\sigma/c_k$. Take $\kappa_b=\max(\kappa,16be^{\mu}/\mu)$.
+\emph{Lemma~\ref{lem:DI}(K) applies}: $\mu>x_0\ell\ge0.1531\times397.6>60$; $\kappa_b\mu=\max(\kappa\mu,16be^\mu)$ with $\kappa\mu<1.002\cdot2\ell^{9/2}\sigma/0.1107$ ($\mu\le2\ell$, $m_T+\bar T\le1.002$) and $16be^\mu<16\ell^5\sigma$ ($b<\ell^4\sigma^2$, $e^\mu<\ell/\sigma$); $\ell^ke^{-\ell}$ decreases for $\ell\ge k$, so both are below their values at $\ell=397.6$, $1.9\times10^{-160}$ and $3.4\times10^{-159}$; hence $\kappa_b\le1/\mu$.
+If $\kappa_b=\kappa$: $u\ge(m_1/m_2)\sqrt2\sqrt re^{\mu}/(\sqrt{e\mu\kappa}E_J)$ with $\sqrt r\ge\ell\sigma^{1/2}\mu^{-1/4}/\sqrt{c_0}$ ($\xi\ge\ell^2$) and the bound of $\kappa$ give $u\ge6.09\times10^{28}>6\ge U$ (interval arithmetic for $\ell\ge397.6$, $\mu\ge x_0\ell$; $u$ increases in $\mu$).
+If $\kappa_b=16be^\mu/\mu$: $\sqrt{e\mu\kappa_b}=4\sqrt{eb}e^{\mu/2}$, so $u\ge(m_1/m_2)(\sqrt2/4)\sqrt re^{\mu/2}/(\sqrt{eb}E_J)$, and with $\sqrt b<\ell^2\sigma$ and $c_0\le1.01$,
+$\ln u\ge\ln(0.985(\sqrt2/4)/\sqrt{1.01e})-\ln E_J(6)+(\ell+\mu)/2-\frac14\ln\mu-\ln\ell$, which increases in $\mu$ ($\mu\ge\frac12$) and, at $\mu=0.1531\ell$, in $\ell$; at $\ell=397.6$ it is at least $220$ ($E_J(6)\le1.492$).
+Both contradict (b.4).
+\item[(b.6)] $B\ge\ell^4$. With $\delta=\ell/4-\mu$, $\Theta'\ge\theta_1(1-4\delta/\ell)^{-1/2}$, $\theta_1=((1-\eta)/(1+\eta))(1+c/\ell)^{-1/2}(1-\varepsilon_1')$, $\varepsilon_1'\le0.80/\ell^2$.
+The product is
+$u^3v\,\mathrm{ch}=(m_1/m_2)^3(m_4/m_3)m_5\,b\omega\chi/(16\alpha^3\beta G^4\Gamma_2)\ge0.997\cdot64k_f\kappa\sigma\mu^3/(P^4\Gamma_2)$ ($G\le P\sqrt{r/(2+r)}$; $\omega\ge1-6\times10^{-11}$ is absorbed into $k_f$): $r$ and $b$ drop out.
+\begin{itemize}
+\item[($\beta$)] $\kappa<16be^\mu/\mu$: with Lemma~\ref{lem:DI}(K) at $\kappa_b=16be^\mu/\mu$ ($\le1/\mu$ as in (m3)), $u\ge(m_1/m_2)4\sqrt2\mu\sqrt r/P$ and $v\ge(m_4/m_3)5.656\,b\omega/(r^{3/2}P)$, one gets $u^3v\ge(m_1/m_2)^3(m_4/m_3)\omega e^{4\mu}/(4e^2\cdot256c_b\mu^3E_J^4E_{\rm CM}^2)$, using $P\le16\mu\sqrt{eb}e^{-\mu/2}E_J$ and $b<c_bP^2\le16c_b\mu^2e^{-2\mu}E_{\rm CM}^2$. This exceeds $U^4$ (the logarithm of the ratio is at least $17.61$), contradicting (b.4).
+\item[($\alpha$)] $\kappa\ge16be^\mu/\mu$. If $\kappa\le1/\mu$, Lemma~\ref{lem:DI}(K) with $\kappa_b=\kappa$ and (b.1) give $P\le4\mu e^{-\mu}\min(E_{\rm CM},\sqrt{e\mu\kappa}E_J)$, and $P^4\le(4\mu e^{-\mu})^4E_{\rm CM}^2e\mu\kappa E_J^2$ gives
+\begin{equation}
+u^3v\,\mathrm{ch}\ge K:=\frac{0.997k_f(1-\eta)\sqrt\ell\,e^{-4\delta}}{2e\mu^2E_J^2E_{\rm CM}^2\sqrt{1+c/\ell}}\quad(\kappa\text{ drops out}).
+\end{equation}
+If $\kappa>1/\mu$, only (b.1) is available and $u^3v\,\mathrm{ch}\ge0.997k_f\sigma e^{4\mu}/(4\mu^2E_{\rm CM}^4\Gamma_2)=K\,eE_J^2/E_{\rm CM}^2\ge K$, by $E_J\ge E_{\rm CM}$:
+with $x=e^{-\mu/2}$, $E_J\ge(1+4.43x)^2+6.2\times10^{-4}$ and $E_{\rm CM}\le(1+3.445x)^2(1+3.62\times10^{-5})$, so $E_J-E_{\rm CM}\ge0.985x(2+7.875x)+6.2\times10^{-4}-3.62\times10^{-5}(1+6.89x+11.868x^2)>0$ termwise.
+\end{itemize}
+For $0\le u,v<U$, $\ln(1+u)\ge\lambda_Uu$ with $\lambda_U=\ln(1+U)/U$, and the claim follows from $a(u+v)+\mathrm{ch}\ge D$, $a=\Theta'\lambda_U/2$, $D=m_T+\bar T-\Theta'$.
+By the weighted arithmetic--geometric mean,
+$au+av+\mathrm{ch}=3(au/3)+av+\mathrm{ch}\ge5(a^4u^3v\,\mathrm{ch}/27)^{1/5}\ge5(a^4K/27)^{1/5}$,
+and it remains to show $5(a^4K/27)^{1/5}\ge D$ where $D>0$.
+\begin{itemize}
+\item[(N0)] If $D>0$ then $\delta<3.75$: for $\delta\ge3.75$, $\Theta'\ge\theta_1(1-15/\ell)^{-1/2}\ge m_T+\bar T(x_0\ell)\ge m_T+\bar T$ ($\bar T$ decreases in $\mu$ and $\mu>x_0\ell$). On $[10^6,\infty)$ this is checked in the form multiplied by $\ell$, with $\theta_1\ge(1-7/\ell)(1-\varepsilon_1')$ and $(1-15/\ell)^{-1/2}\ge1+7.5/\ell$.
+\item[(N)] Near side, $-m_F\le\delta<3.75$, $m_F=0.375\ln\ell+1$: $\mu$ lies between $\mu_N=\ell/4-3.75$ and $\ell/4+m_F$. With $\bar T_N=t_c\frac43\mu_Ne^{-\mu_N}E_{\rm CM}(\mu_N)/\ell$, $\Theta_N=\theta_1/\sqrt{1+4m_F/\ell}$, $U_N=((m_T+\bar T_N)/\Theta_N)^2-1$, $a_N=\Theta_N\ln(1+U_N)/(2U_N)$ and $k_N=0.997k_f(1-\eta)/(2eE_J(\mu_N)^2E_{\rm CM}(\mu_N)^2\sqrt{1+c/\ell})$, the left side is at least $C_N\ell^{-0.3}e^{-0.8\delta}$ with $C_N=5(a_N^4k_N/27)^{1/5}4^{0.4}(1+4m_F/\ell)^{-0.4}$, and $D\le(a_0-2\theta_1\delta)/\ell$, $a_0=\ell(m_T+\bar T_N-\theta_1)$. The function $f(\delta)=C_N\ell^{0.7}e^{-0.8\delta}$ is convex; its tangent at $\delta_0=\ln(0.4C_N\ell^{0.7})/0.8$ is $2.5-2(\delta-\delta_0)$, and $\theta_1<1$, so the claim follows from $2.5+2\delta_0\ge a_0/\theta_1$ (condition (N); also $a_0/(2\theta_1)\le3.75$).
+\item[(F)] Far side, $\delta<-m_F$: $\mathrm{ch}\ge K/(u^3v)>K/U^4$, so $K\ge(m_T+\bar T)U^4$ suffices. With $U+1\le(m_T+\bar T)^2(4\mu/\ell)/\theta_1^2$ and $K\ge k_N\sqrt\ell e^{-4\delta}/\mu^2$, the condition is $k_N\theta_1^8e^{4|\delta|}\ge(m_T+\bar T)^9\ell^{1.5}(1+4|\delta|/\ell)^6/16$; at $|\delta|=m_F$, $e^{4m_F}=e^4\ell^{1.5}$, which gives condition (F): $16e^4k_N\theta_1^8\ge(m_T+\bar T)^9(1+4m_F/\ell)^6$. For $|\delta|>m_F$ the logarithm of the ratio has derivative $4-24/(\ell+4|\delta|)\ge3.565>0$ in $|\delta|$, so the condition persists.
+\end{itemize}
+\end{itemize}
+Every state of Case~II with $r>c_{\rm ch}\sqrt\ell\sigma$ lies in exactly one of (m1)--(m4); the boundary $\xi=\ell^2$ belongs to (m4).
+The numbers of (b.5) ($6.09\times10^{28}$, $220$, $1.9\times10^{-160}$, $3.4\times10^{-159}$), the far side ($3.5657$), and $E_J-E_{\rm CM}\ge5.8\times10^{-4}$ (on $[0,80]$ in $8{,}000$ pieces and $[80,\infty)$) were also computed in interval arithmetic (\code{dl\_review.py}).
+
+\subsection{Proposition~\ref{prop:wide}: 35 conditions}
+
+\code{dp\_room1.py} builds the constants of Proposition~\ref{prop:wide} from the \emph{source} of \code{consts\_iv}, replacing only $B_m$, the denominator of $q$, $z_2$, es, $e_0$, the bound $b<0.1$ of Case~I and the three written-in numbers (w1)--(w3) of Sec.~\ref{sec:wide} by arguments (each replaced line occurs exactly once); with the old values it reproduces \code{consts\_iv} to $2.2\times10^{-36}$.
+On each of the $6{,}952$ pieces of $[960.8,10^6]$ and on the tail, with $B_m=8\ell_a+100$ (\code{dq\_room1\_low.py}), $35$ conditions are checked: the $13$ conditions of Proposition~\ref{prop:narrow} not belonging to (b.6), (R1), (R3) and the small claims with $B_m$ and $q$, the condition on $e_0$, the two quoted inputs $P\le0.7008$ and $P/(\mu e^{-\mu})\le9.18$, the written-in numbers (w1)--(w6), (b.2), and five conditions of (b.5).
+Table~\ref{tab:cond35} gives the smallest values; none of the $6{,}953$ pieces fails.
+The watch fired twice while this computation was being written, both times in new code (a division in the default context, and a number passed as a 40-digit decimal into a product); both were moved into the interval arithmetic.
+
+\subsection{Lemmas~\ref{lem:M4} and~\ref{lem:M12}}
+
+$M_4(10^{-4})\le2.04742$ (\code{dq\_m4.py}) and $M_1(10^{-4})\le0.73768$, $M_2(10^{-4})\le2.74484$ (\code{du\_cl.py}) are computed on the pieces stated in the proofs, with the watch.
+The power checks: $M_4(10^{-4})\le2.04$, $M_4(1)\le2.07$, $\Qb(M_2/2+M_1)\le0.5$ and $M_2(10^{-4})\le2.7$ each fail on a grid point.

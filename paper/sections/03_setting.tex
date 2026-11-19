@@ -1,0 +1,142 @@
+\section{Setting and the local route}
+\label{sec:setting}
+
+This section collects what Theorems~\ref{thm:narrow}--\ref{thm:wide} share: the quantities of the focus, the \emph{lines} (explicit lower bounds for the numerator of $(a)+(a')$), and the hypothesis on the brightness of the ripple inside the focus.
+Theorem~\ref{thm:verywide} uses none of it; Section~\ref{sec:verywide} can be read on its own.
+
+\subsection{The quantities of the focus}
+
+Fix a state and a focus $t_0$ on the ripple.
+Averages $\langle\cdot\rangle$ are taken with the Gaussian $\theta_\tau$ of variance $\tau=x/b$ centred at $t_0$, as in \Hsec{IX~A} of~\cite{H}.
+With $u=t-t_0$ we write
+\begin{gather}
+E_0=\langle\theta_\tau R^2\rangle,\quad E_1=\langle\theta_\tau R'^2\rangle,\quad \mu=\frac{xE_1}{E_0},\nonumber\\ P=2xE_1,\qquad \kappa=\frac{\langle(u^2/\tau)\theta_\tau R'^2\rangle}{E_1}.
+\label{eq:focusq}
+\end{gather}
+$\mu$ measures how fine the ripple is in the focus, $P$ how bright it is, and $\kappa$ how far from the centre of the focus its brightness sits ($\kappa=1$ when the brightness is spread evenly over a focus that spans many periods).
+The envelope enters through
+\begin{gather}
+r=\frac{s^2}{L^2}\in[\sigma^3,\tfrac14],\qquad a=\frac{4\sigma}{L^2}\in\Bigl[4\sigma^2,\frac{4r}{\sigma}\Bigr],\nonumber\\ g_s=\sqrt{\frac{r}{2+r}},\qquad G=g_sP,\qquad k_E=\sqrt{\frac{r}{1+r}} .
+\end{gather}
+The two ends of $a$ are (P0) $L^2\le1/\sigma$ and (P4) $s\ge\sigma$; $G$ is the brightness of the ripple as the observer's lens sees it.
+The target of Theorems~\ref{thm:narrow}--\ref{thm:wide} is
+\begin{gather}
+\mathrm{Num}-\gamma\,\sigma\,\mathrm{den}\ \ge\ 0,\nonumber\\ \mathrm{Num}=2A_w+N_\phi,\qquad \gamma=\Gamma_\ell=\sqrt{(1+10/\ell)/\ell},
+\label{eq:target}
+\end{gather}
+which is $(a)+(a')\ge\Gamma_\ell$.
+Throughout Secs.~\ref{sec:setting}--\ref{sec:wide}, $\eta=1/\ell$ is used in the coefficients (the window class has $\eta\le1/\ell$), $U_1=\tfrac14\sqrt{2\ell+3.1}+10^{-6}$ is the window constant of~\cite{H} (\Hsec{VI}; valid for $x\ge5\times10^{11}\sigma^2$, with no upper limit on $\ell$), and $X_1=\tfrac43U_1$.
+
+\subsection{The lines}
+\label{sec:lines}
+
+\begin{lemma}[the lines are lower bounds] \status{proof for $y\le10^{-40}$ (used in Theorem~\ref{thm:res}); for $y\le10^{-4}$ three constants are computer-assisted (App.~\ref{app:A})}
+\label{lem:lines}
+Let $\ell\ge55.26$, $b\le\tfrac12$, $B\ge8\ell+100$ and $y=(1-b)^2/(2B)\le10^{-4}$, and let the window satisfy $\eta\le1/\ell$, (P3) and $\sqrt x\,\sup|R'|\le U_1$.
+For each of the options $k\in\{\mathrm{Fz},\ \mathrm{Tz\text{-}B2},\ \mathrm{Tz\text{-}B1}\}$ and every $a$ in its range,
+\begin{equation}
+\frac{\mathrm{Num}-\gamma\sigma\,\mathrm{den}}{\sigma}\ \ge\ \Lambda_k(a):=\sum_{l\in k}s_l\,c_l\,\sigma^{p_l-1}f_{t_l}(a),
+\label{eq:lines}
+\end{equation}
+where the sum runs over the lines of the option, $s_l=\pm1$, $c_l>0$ is a coefficient free of $\sigma$ (written with $B=b/\sigma^2$), $p_l$ is a power, and the type $t_l$ fixes the $a$-dependence: $f_L=a$, $f_S=\sqrt a$, $f_C=1$, $f_M=1/\sqrt a$, $f_H=1/(a+\sigma)$.
+For $b\in(\tfrac12,1]$ the same holds for the option Fz.
+\end{lemma}
+
+The $37$ lines and their coefficients are listed in App.~\ref{app:B}.
+Each line is a term of one of the local lemmas, written in the same form or in a worse one (a gain made smaller, a loss made larger).
+The local lemmas are a direct form of the $v$-branch (an identity), an identity for its main term, a bound for a ring of the Gaussian tail, and a lemma for the pair (III)$+$B1v that carries the chirp; together with Lemma~R$_\theta$ of~\cite{H} (\Hsec{IX~A}) for the $w$-branch they give the lines.
+They are new and are proved in App.~\ref{app:A}.
+None of them has a restriction on $\ell$, $\mu$ or $\kappa$; $\ell$ enters only through $U_1$, $\eta=1/\ell$ and the ring radius $K^2=8\ell+100$.
+The condition on $B$ is $z_0^2=K^2y\le1$ with $y=(1-b)^2/(2B)$ for the pair lemma, $1-q>0$ for the ring, and $y\le10^{-4}$ for three constants of the main-term identity (Lemmas~\ref{lem:M4} and~\ref{lem:M12}, computer-assisted); for $y\le10^{-40}$, which covers Theorem~\ref{thm:res}, these constants are bounded by hand (Lemma~\ref{lem:M0}).
+For the option Fz with $b>\tfrac12$, the pair lemma is not used; Fz is a weaker lower bound from which a positive line is subtracted (App.~\ref{app:A}).
+
+\begin{table}
+\caption{The lines that carry the proofs. ``$\times\sigma$'' is the unit of Eq.~\eqref{eq:lines}. The other lines (remainders of size $\sigma^{1/2}$ or smaller relative to these, and the losses of the branches B1, B2) are listed in App.~\ref{app:B}.}
+\label{tab:lines}
+\begin{ruledtabular}
+\small
+\begin{tabular}{p{0.11\columnwidth}p{0.07\columnwidth}p{0.47\columnwidth}p{0.2\columnwidth}}
+line & type & value & meaning\\ \hline
+P1 & L & $+a/2$ & $w$-information\\
+P4z & H & $+(b\omega/2)/(a+\sigma)$ & background in $v$\\
+P2z & L & $+\alpha Ga$ & ripple, $w$-side\\
+hFz & H & $+\beta G/(a+\sigma)$ & ripple, $v$-side\\
+cKz & C & $+\chi G$, $\chi=\mathrm{fl}\,k_f\kappa\sigma/(16b)$ & chirp\\
+d1, d2 & C & $-\gamma bk_1$, $-\gamma Gk_2$ & target (den)\\
+N1, N2 & L & $-\varepsilon_1(r)\,a/2$, $-Q_2\,a/(16B)$ & $w$-branch\\
+hneg1 & H & $-\varepsilon_h(r)\,(b\omega/2)/(a+\sigma)$ & main term\\
+FzK & C & $-\sigma\kappa G/(4(1-\eta))$ & option Fz\\
+\end{tabular}
+\end{ruledtabular}
+\end{table}
+
+Table~\ref{tab:lines} shows the lines that carry the proofs.
+Here $\omega=(1+3/(4B))^{-2}$, $\mathrm{fl}=1/(1+\eta)$, $k_f=(1-b)^2\,\mathrm{brk}$, $\mathrm{brk}=1-4b/(1-b)-z_2/12$, $z_2=(8\ell+100)/(2B)$, $q=(8\ell+100)(1+\eta)/(8B(1-\eta))$, $k_1=1+(\eta+0.184)k_E$, $k_2=1/(2(1-\eta))$, $\varepsilon_1(r)=\eta k_E(2+r)/(1+r)$, $\varepsilon_h(r)=2k_E(\eta+0.184)/\omega$, and $\alpha$, $\beta$, $Q_2$ are explicit (App.~\ref{app:B}).
+Every coefficient is a product of positive factors in the class, so the sign of each line is that of the table for every $\ell$ \proofst.
+The options differ in how they pay for the pair (III)$+$B1v: Fz drops the chirp and pays the line FzK; Tz uses the chirp cKz and pays the branch losses B2 (Tz-B2) or B1 (Tz-B1).
+Since every option is a lower bound of the same quantity, the option may be chosen state by state and $a$ by $a$.
+
+\subsection{The brightness hypothesis}
+
+\begin{lemma}[the brightness hypothesis (H$'$)] \proofst
+\label{lem:Hprime}
+For every window of the class and every focus, $P$ satisfies
+\begin{itemize}
+\item[(A)] $P\le\mu/8$;
+\item[(K)] $\kappa P\le2U_1^2$;
+\item[(CM)] $P/2\le\mathcal U(P;\mu,b,1,1)$;
+\item[(J)] for all $\lambda>0$ and $\kappa_b\ge\kappa$ with $b\le\lambda\kappa_b\le1$: $P/2\le\mathcal U(P;\mu,b,\sqrt{\lambda\kappa_b},e^{1/(2\lambda)})$,
+\end{itemize}
+where, with $b'=b/s^2$, $\hat E=\min(P/(2\mu s),1/16)$ and $B_0(E,b')=(1+\sqrt E+(E/2)^{1/(2+b')})^2$,
+\begin{gather}
+\mathcal U(P;\mu,b,s,c)=c\Bigl[(1+\tfrac{b'}2)\,s\,\hat E\ln\frac{2B_0(\hat E,b')}{\hat E}+c_{\rm CM}\,b'\,s\Bigr],\nonumber\\ c_{\rm CM}=\frac{\sqrt2}{16e}.
+\end{gather}
+\end{lemma}
+
+\begin{proof}[Origin of the four parts]
+(A) is $E_0\le\Qb^2=1/16$, from (P3).
+(K) is $x E_1\kappa\le x\sup R'^2\le U_1^2$.
+(CM) is Lemma~CM-1 of~\cite{H} (\Hsec{IX~A}) with $E_0'\le1/16$; the constant $c_{\rm CM}$ is the factor $(\sqrt2/e)E_0'$ of that lemma.
+(J) uses Lemma~CM-1 at a second focus $\tau'=\lambda\kappa_b\tau$, the second line of Lemma~CN-1 of~\cite{H} (\Hsec{IX~A}), and the inequality
+$E_1^{(\tau)}\le\sqrt{\tau'/\tau}\,\exp\bigl(\kappa(\tau/\tau'-1)/2\bigr)E_1^{(\tau')}$ for all $\tau'>0$, which is Jensen's inequality for the convex function $z\mapsto e^{-cz}$ of $z=u^2$ (App.~\ref{app:A}).
+We use (J) only with $b'=b/(\lambda\kappa_b)\le\tfrac1{16}$.
+\end{proof}
+
+No condition on $\mu$ is needed; Lemma~CM-1 and the two-foci inequality hold for every $\mu>0$.
+The four parts are consequences of positivity of the window and of the class bounds; they are not assumptions on the window, but we keep the name (H$'$) of the earlier work.
+Two closed forms are used in the proofs.
+
+\begin{lemma}[closed forms] \proofst
+\label{lem:DI}
+Let $A=1+b/2$, $\bar B=B_0(\tfrac1{16},b)$ and suppose $\mu>A\ln(32\bar B)+16c_{\rm CM}b$.
+\begin{itemize}
+\item[(v)] For every $t>0$: $P/(2\mu)\le\max\bigl(2\bar Be^{-\mu/A+t},\ c_{\rm CM}b/((1+b/2)t)\bigr)$.
+\item[(iv)] $P\le4\mu B_1e^{-\mu/(1+b/2)}+2c_{\rm CM}\mu b/(1+b/2)$, with $B_1=B_0(y_1,b)$, $y_1=2\bar Be^{-\mu/A}+c_{\rm CM}b$.
+\item[(K)] If $\mu\ge6$, $\kappa\le\kappa_b\le1/\mu$ and $\kappa_b\ge16be^{\mu}/\mu$, then
+\begin{gather}
+P\le4\mu e^{-\mu}\sqrt{e\mu\kappa_b}\,E_J(\mu),\quad\text{where}\nonumber\\ E_J(\mu)=(1+4.43e^{-\mu/2})^2e^{\mu e^{-\mu}/32}+6.2\times10^{-4}.
+\end{gather}
+\end{itemize}
+\end{lemma}
+
+The proofs are short consequences of (CM) and (J) (App.~\ref{app:A}).
+The constant $E_J$ is proved by hand: every quantity in it is monotone in $\mu$, which reduces the claim to the single point $\mu=6$, where seven numbers are checked; the same numbers were also confirmed by interval arithmetic.
+
+\subsection{States without a visible ripple}
+
+\begin{lemma}[$G=0$] \proofst
+\label{lem:G0}
+If $P=0$, then for every $\sigma>0$, $b\in(0,1]$ and $L^2\ge4\sigma^2$, and for every $\tau$, $\mu$, $\kappa$, $x$,
+\begin{gather}
+(a)+(a')\ \ge\ \min\Bigl(\frac{0.316}{\sigma},\ \frac{C_0}{\sqrt b}\Bigr),\nonumber\\ C_0=\tfrac32\sqrt{k/128}=0.19950\ldots,\qquad k=3-2/e.
+\end{gather}
+\end{lemma}
+
+The proof (App.~\ref{app:A}) computes $(a)+(a')$ in closed form: with no ripple the window is Gaussian, $m_z$ is linear in the two Gaussian coordinates, and $\E[X^2\cos(aX+cY)]=(1-a^2)e^{-(a^2+c^2)/2}$.
+Since $C_0=0.1995>\Gamma_\ell$ for $\ell\ge55.26$ ($\Gamma_{55.26}=0.14619$), states with $G=0$ satisfy the law in every region.
+
+\emph{Picture.}
+The focus is a Gaussian spot on the ripple.
+Three numbers describe what the observer sees inside it: how fine the ripple is ($\mu$), how bright it is ($P$), and whether the brightness sits at the centre of the spot or is spread over it ($\kappa$).
+Positivity of the window forbids a ripple that is fine, bright and concentrated at once; this is Lemma~\ref{lem:Hprime}.
+The lines are the bookkeeping: each says how much information one part of the picture carries, or how much one effect of the blur takes away.

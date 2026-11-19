@@ -1,0 +1,27 @@
+\section{Verification}
+\label{app:E}
+
+All computations of this paper can be rerun from the code that accompanies it (Data and code availability).
+It needs Python~3 with \code{numpy} and \code{matplotlib}; the runs reported here used Python~3.13.18 and \code{numpy}~2.5.3.
+
+\emph{Two entry points.}
+\code{verification/quick.py} runs in a few minutes; it reruns the interval arithmetic of Lemmas~\ref{lem:M4}, \ref{lem:M12}, \ref{lem:M0} and~\ref{lem:EJ}, of Proposition~\ref{prop:res}, and of Proposition~\ref{prop:BE} and Lemma~\ref{lem:P} at their worst points, the self-test of the interval arithmetic, and the map of Theorem~\ref{thm:main}.
+\code{verification/run\_all.py} runs everything; it takes about ten minutes.
+Both exit with status $0$ only if every check passes.
+Every rerun is made in a temporary copy, and its output is compared with the stored record entry by entry (only the timing may differ); the stored records are never overwritten.
+
+\emph{What is checked.}
+\begin{itemize}
+\item[(i)] The interval arithmetic (\code{dl\_interval.py}): true values lie in the computed intervals; deliberately wrong versions are caught; every interval run is made with \code{decimal.Inexact} trapped in the default context, so that no inexact operation can escape the outward rounding.
+\item[(ii)] Propositions~\ref{prop:narrow} and~\ref{prop:wide}: the $9{,}809$ pieces of $[55.26,10^6]$, the $6{,}952$ pieces of $[960.8,10^6]$, and the tails (\code{du\_fix.py}, which reruns \code{dl\_consts.py}, \code{dp\_room1.py} and \code{dq\_room1\_low.py}), and the absorptions (R1), (R3) on $[55.26,\infty)$ as one piece (\code{dp\_r1.py}).
+\item[(iii)] Proposition~\ref{prop:res} (\code{dp\_room2.py}) and Lemmas~\ref{lem:M4}, \ref{lem:M12}, \ref{lem:M0}, \ref{lem:EJ} (\code{dq\_m4.py}, \code{du\_cl.py}, \code{dv\_m3.py}, \code{dq\_ej.py}), each with its deliberately wrong versions.
+\item[(iv)] Proposition~\ref{prop:BE} and Lemma~\ref{lem:P} (\code{dr\_be.py}, \code{ds\_check.py}).
+\item[(v)] The tables of App.~\ref{app:C} are generated again from the records and compared with the text; the figures are drawn again from the records.
+\item[(vi)] The map: on a grid of $\ell$ from $55.26$ to $10^{8}$, with every break point of the five statements, and on a grid of $B$ in $(0,e^{2\ell}]$ that contains every boundary, every pair $(\ell,B)$ lies in the range of at least one of Theorems~\ref{thm:narrow}--\ref{thm:verywide} or of Theorem~H1 of~\cite{H}; the inequalities used in the proof of Theorem~\ref{thm:main} are checked in exact arithmetic. Removing any one statement, or narrowing one range, leaves a gap that the check finds.
+\item[(vii)] The searches of Sec.~\ref{sec:break} and the comparisons with the true quantities are checked against their records.
+\end{itemize}
+
+\emph{Relation to the repositories of~\cite{F,H}.}
+The code of~\cite{F,H} is not copied.
+Some modules of this paper import modules of the repository of~\cite{H}; \code{run\_all.py} takes its location (\code{--h-repo}, or the environment variable \code{H\_REPO}); \code{quick.py} does not need it.
+Theorem~H1 is certified by the certificates of~\cite{H}, which are rerun by the verification of that repository and not here.

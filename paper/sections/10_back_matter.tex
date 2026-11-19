@@ -1,0 +1,10 @@
+\begin{acknowledgments}
+The author used AI assistants in this work. Anthropic Claude was used in two separate sessions. The first session (claude-opus-5-5) wrote the instructions for each stage, re-ran every verification suite in a fresh folder, recomputed the key constants by hand, and reviewed the manuscript. The second session derived the lemmas and the proofs of Theorems 2 to 5, wrote the interval arithmetic and the verification code, and drafted the text, using Anthropic Claude Fable (claude-fable-5-2) for the new proof ideas, among them the narrow-focus lemmas and the positivity-and-periodicity lemma (Lemma 7), and claude-opus-5-5 otherwise; it also found constants that had been left as numerical maxima and closed them by proofs. Google Gemini (Gemini 4 Argon) and OpenAI ChatGPT (GPT-6 Sol) independently reviewed the manuscript; their comments led to the lower end of the borrowed Lemma BE and several corrections of notation.
+The author directed the research, made all decisions on its content, and takes full responsibility for this article.
+\end{acknowledgments}
+
+\emph{Data and code availability.}
+All code, stored results, the interval-arithmetic computations and the verification suite are available at \url{https://github.com/neginyan/resolution-gap-every-focus} and archived at Zenodo (DOI added on publication).
+A single entry point, \code{verification/run\_all.py}, recomputes every computer-assisted part of this paper and re-derives its numbers from the stored results; \code{verification/quick.py} is a short check that runs in a few minutes.
+The certificates of Theorem~H1 are those of~\cite{H} and are re-run with the repository of~\cite{H}.
+Paper~F and its repository~\cite{F} are not changed; this paper uses version~1.3 of paper~H~\cite{H}, prepared together with it.

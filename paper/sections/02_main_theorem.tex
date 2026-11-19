@@ -1,0 +1,182 @@
+\section{Main theorem}
+\label{sec:main}
+
+\subsection{Setting}
+We use the notation of Papers~F and~H and recall only what the statements need.
+A periodic window is $p=\mathcal N_V\,\Gamma\,h/Z$, with $\mathcal N_V$ a Gaussian of variance $V=\sigma^2/b$ in $v$, $\Gamma=N(0,L^2)$ in $w$, and
+\begin{gather}
+h-1=e^{-w^2/2s^2}R(t),\quad t=k'v,\\ R(t)=\sum_{n\ge1}q0_n\cos(nt-\varphi_n).
+\end{gather}
+We write $x=(k'\sigma)^2$, $\tau=x/b$, $\eta=\sup|R|$ and $\ell=\ln(1/\sigma)$.
+A \emph{state} is a choice of $(b,L^2,s^2)$ with $0<b\le1$, (P0) $L^2\le1/\sigma$ and (P4) $\sigma^2\le s^2\le L^2/4$.
+The conditions (P0)--(P7) are those of Table~5 of~\cite{F}.
+Throughout,
+\begin{equation}
+B=\frac{b}{\sigma^2}=\frac1V,\qquad \Gamma_\ell=\sqrt{\frac{1+10/\ell}{\ell}} .
+\end{equation}
+As in Eq.~(3) of~\cite{F},
+\begin{equation}
+g\ \ge\ (1-|\varepsilon|)\,\bigl((a)+(a')\bigr),\quad (a)=\frac{2A_w}{\sigma\,\mathrm{den}},\quad (a')=\frac{N_\phi}{\sigma\,\mathrm{den}},
+\label{eq:ga}
+\end{equation}
+with $\mathrm{den}=\sigma^2(\Jvv+\Jww)$ and $|\varepsilon|\le\bar\varepsilon$ the window-class constant of (P6).
+All theorems below bound $(a)+(a')$ from below; the factor $1-\bar\varepsilon$ enters only through Eq.~\eqref{eq:ga}.
+
+\emph{The class.} A window is \emph{admissible} if it satisfies (P0), (P2)--(P4) and (P6), and $5\times10^{11}\sigma^2\le x\le0.003$.
+This is the class of Theorem~H1 of~\cite{H}.
+
+\subsection{Statement}
+
+\begin{theorem}[every focus, every resolution] \status{proof, computer-assisted: Theorems~\ref{thm:narrow}, \ref{thm:wide} and Theorem~H1 of~\cite{H}}
+\label{thm:main}
+Let $\ell\ge55.26$ and let an admissible window satisfy $\eta\le1/\ell$.
+Then every state satisfies
+\begin{equation}
+g\sqrt\ell\ \ge\ 1-\bar\varepsilon .
+\end{equation}
+If $\ell\ge960.8$, every state satisfies the stronger bound
+\begin{equation}
+g\sqrt\ell\ \ge\ (1-\bar\varepsilon)\sqrt{1+10/\ell}\,;
+\end{equation}
+for $55.26\le\ell<960.8$ the stronger bound holds for every state with $B\ge2.5\times10^{10}$.
+\end{theorem}
+
+In the observer's words: at every resolution finer than about $10^{-24}$, and for every position and width of the focus, the information that survives the blur is at least the fraction $(1-\bar\varepsilon)/\sqrt\ell$.
+There is no state in which a clever focus does better than the exchange rate.
+
+Theorem~\ref{thm:main} is assembled from five statements, each for one kind of focus.
+Four are new; the fifth is Theorem~H1 of~\cite{H}.
+We state them in the language of windows; the sections that prove them give the sharper technical forms.
+
+\begin{theorem}[narrow focus] \status{proof, computer-assisted: Sec.~\ref{sec:narrow} and App.~\ref{app:C}}
+\label{thm:narrow}
+Let $\ell\ge55.26$ and let an admissible window satisfy $\eta\le1/\ell$.
+Every state with
+\begin{equation}
+b\le\tfrac12,\qquad B\ge\max\bigl(2.5\times10^{10},\,50(8\ell+100)\bigr)
+\end{equation}
+satisfies $(a)+(a')\ge\Gamma_\ell$.
+There is no upper limit on $\ell$.
+\end{theorem}
+
+\begin{theorem}[focus at the resolution] \proofst
+\label{thm:res}
+Let $\ell\ge55.26$ and let an admissible window satisfy $\eta\le1/\ell$.
+Every state with $\tfrac12<b\le1$ satisfies $(a)+(a')\ge0.1995$; if the ripple has energy in the focus ($G>0$ in the notation of Sec.~\ref{sec:setting}) then $(a)+(a')\ge0.6$.
+In particular $(a)+(a')\ge\Gamma_\ell$.
+\end{theorem}
+
+\begin{theorem}[wide focus] \status{proof, computer-assisted: Sec.~\ref{sec:wide} and App.~\ref{app:C}}
+\label{thm:wide}
+Let $\ell\ge960.8$ and let an admissible window satisfy $\eta\le1/\ell$.
+Every state with $8\ell+100\le B<\ell^4$ satisfies $(a)+(a')\ge\Gamma_\ell$.
+\end{theorem}
+
+\begin{theorem}[very wide focus] \proofst
+\label{thm:verywide}
+Let $\ell\ge960.8$ and let a periodic window satisfy (P0), (P3), (P4) and $5\times10^{11}\sigma^2\le x\le0.003$.
+Every state with $0<B\le8\ell+100$ satisfies $(a)+(a')\ge\Gamma_\ell$.
+Neither $\eta\le1/\ell$ nor (P2) is used.
+\end{theorem}
+
+Theorem~\ref{thm:verywide} follows from the next two statements; the first holds where the focus spans many periods, the second everywhere.
+Put $\tau_0(\ell)=4\ln\ell+40$.
+
+\begin{proposition}[the mean-square bound without limits on $B$ and $\ell$] \proofst
+\label{prop:BE}
+Under the hypotheses of Theorem~\ref{thm:verywide}, every state with $0<B\le8\ell+100$ and $\tau\ge\tau_0(\ell)$ satisfies
+\begin{equation}
+(a)+(a')\ \ge\ \frac{\kappa(B)}{\sigma},\qquad \kappa(B)=\min\Bigl(0.055,\ \frac{0.459}{4B+1}\Bigr).
+\end{equation}
+\end{proposition}
+
+\begin{lemma}[positivity and periodicity] \proofst
+\label{lem:P}
+Let $p=\mathcal N_V\,\Gamma\,h/Z$ with $h$ as above, $\sum_nq0_n\le\Qb=\tfrac14$, $s\ge\sigma$ and $2\pi\sigma/\sqrt x\le1$; the density $\Gamma$ of $w$ may be any positive differentiable density.
+Let $N_1=\sum_nn\,q0_n$,
+\begin{equation}
+a=\frac{\sqrt x\,N_1}{1-\Qb}+\frac{\Qb e^{-1/2}}{1-\Qb},\qquad \theta=\tfrac15e^{-10\pi^2/\tau}.
+\end{equation}
+Then every state satisfies
+\begin{equation}
+N_\phi\ \ge\ c_P\,\sigma^2\Jvv,\qquad c_P=\frac{\sigma^2}{8x}\,\frac{\theta}{1+\theta}\Bigl((1-b)-\frac{2a\sqrt x}{\pi}\Bigr)_+^2 .
+\end{equation}
+\end{lemma}
+
+Proposition~\ref{prop:BE} is Lemma~BE of~\cite{H} with its two restrictions ($B\le10^4$, $\ell\le6907.8$) removed; for $B\le10^4$ its constant $0.459/(4B+1)\ge1.147\times10^{-5}$ agrees with the constant $1.1\times10^{-5}$ of~\cite{H}.
+Lemma~\ref{lem:P} is new.
+It does not use (P0), the regime of $x$, or any bound on $\eta$.
+
+\subsection{Proof of Theorem~\ref{thm:main} from the five statements}
+
+\begin{proof}
+By Eq.~\eqref{eq:ga} it suffices to bound $(a)+(a')$.
+Fix a state and write $B=b/\sigma^2$.
+
+\emph{Case $55.26\le\ell\le960.8$.}
+If $b>\tfrac12$, Theorem~\ref{thm:res} applies.
+Let $b\le\tfrac12$.
+On this range of $\ell$, $50(8\ell+100)\le389\,320<2.5\times10^{10}$.
+If $B\ge2.5\times10^{10}$, Theorem~\ref{thm:narrow} gives $(a)+(a')\ge\Gamma_\ell$.
+If $B<2.5\times10^{10}$, then $\tau=x/b\ge5\times10^{11}/B>20$, and item~(i) of Theorem~H1 of~\cite{H} gives $g\sqrt\ell\ge1-\bar\varepsilon$.
+
+\emph{Case $\ell\ge960.8$.}
+If $b>\tfrac12$, Theorem~\ref{thm:res} applies.
+If $B\le8\ell+100$, Theorem~\ref{thm:verywide} applies.
+If $8\ell+100\le B<\ell^4$, Theorem~\ref{thm:wide} applies.
+If $B\ge\ell^4$ and $b\le\tfrac12$, then $B\ge\max(2.5\times10^{10},50(8\ell+100))$, because $\ell^4\ge8.5\times10^{11}$ and $\ell^4\ge50(8\ell+100)$ for $\ell\ge960.8$, and Theorem~\ref{thm:narrow} applies.
+These cases exhaust the states, and each gives $(a)+(a')\ge\Gamma_\ell$, i.e.\ $g\sqrt\ell\ge(1-\bar\varepsilon)\sqrt{1+10/\ell}$.
+\end{proof}
+
+\subsection{Proof of Theorem~\ref{thm:verywide} from Proposition~\ref{prop:BE} and Lemma~\ref{lem:P}}
+
+\begin{proof}
+Let $\tau\ge\tau_0(\ell)$.
+Proposition~\ref{prop:BE} and $B\le8\ell+100$ give $(a)+(a')\ge0.459\,e^{\ell}/(32\ell+401)$, which exceeds $\Gamma_\ell$ by a factor larger than $e^{950}$ for $\ell\ge960.8$.
+
+Let $\tau<\tau_0(\ell)$.
+Since $2A_w\ge\sigma^2\Jww$ (because $0\le\phi\le2$) and $\mathrm{den}=\sigma^2\Jvv+\sigma^2\Jww$, Lemma~\ref{lem:P} gives
+\begin{equation}
+2A_w+N_\phi\ \ge\ \sigma^2\Jww+c_P\,\sigma^2\Jvv\ \ge\ \min(1,c_P)\,\mathrm{den},
+\end{equation}
+so it suffices to show $c_P\ge\sigma\Gamma_\ell$.
+The regime gives $\tau B=x/\sigma^2\ge5\times10^{11}$, hence $\tau\ge5\times10^{11}/(8\ell+100)$ and $10\pi^2/\tau\le10\pi^2(8\ell+100)/(5\times10^{11})$; also $x=\tau B\sigma^2<\tau_0(\ell)(8\ell+100)\sigma^2$, and the condition $2\pi\sigma/\sqrt x\le1$ of the lemma holds.
+With $\theta/(1+\theta)\ge\tfrac16e^{-10\pi^2/\tau}$ and the bracket of $c_P$ above $1-10^{-400}$,
+\begin{equation}
+\begin{split}
+\ln\frac{c_P}{\sigma\Gamma_\ell}\ \ge\ &\ell-\frac{10\pi^2(8\ell+100)}{5\times10^{11}}\\&-\ln\bigl(48\,\tau_0(\ell)(8\ell+100)\bigr)-\ln\Gamma_\ell-10^{-399}.
+\end{split}
+\end{equation}
+The right side is at least $947$ at $\ell=960.8$ and increases with $\ell$.
+\end{proof}
+
+States with $\tau<\tau_0(\ell)$ exist in the region of Theorem~\ref{thm:verywide} only for $\ell>5.19\times10^{8}$ and $B>5\times10^{11}/\tau_0(\ell)$ (the hatched strip of Fig.~\ref{fig:map}); below that resolution Proposition~\ref{prop:BE} alone proves the theorem.
+
+\subsection{What is new and what is borrowed}
+
+\begin{table}
+\caption{Origin of the statements used in Theorem~\ref{thm:main}.}
+\label{tab:origin}
+\begin{ruledtabular}
+\small
+\begin{tabular}{p{0.56\columnwidth}p{0.36\columnwidth}}
+statement & origin\\ \hline
+$g\ge(1-\bar\varepsilon)((a)+(a'))$, the conditions (P0), (P2)--(P4), (P6) & Paper~F, Eq.~(3), Table~5\\
+period-average lemmas (Lemmas~19, 21--23 of F) & Paper~F, App.~D\\
+Theorem~H1 ($\tau\ge20$, $\ell\le960.8$) & Paper~H, \Hsec{VIII}\\
+Lemma~R$_\theta$ (local route), Lemma~CM-1, second line of Lemma~CN-1 & Paper~H, \Hsec{IX~A}\\
+Lemma~A4*, the steps of Lemma~BE, window constants $U_1,U_2,\gamma_P,c_\chi$ & Paper~H, \Hsecs{III, VI, VII and Apps.~D, E}\\
+the local lemmas (direct form, main-term identity, ring, pair; Lemmas~\ref{lem:lines}--\ref{lem:G0} and App.~\ref{app:A}) & new\\
+Theorems~\ref{thm:narrow}, \ref{thm:res}, \ref{thm:wide}, \ref{thm:verywide} & new\\
+Proposition~\ref{prop:BE} (Lemma~BE for all $B\le8\ell+100$, all $\ell\ge960.8$) & new; same core as Lemma~BE\\
+Lemma~\ref{lem:P} (positivity and periodicity) & new\\
+the brightness hypothesis (H$'$) in closed form, the lines and their constants & new (Secs.~\ref{sec:setting}--\ref{sec:wide})\\
+\end{tabular}
+\end{ruledtabular}
+\end{table}
+
+Table~\ref{tab:origin} separates the two.
+Three remarks on the hypotheses.
+First, $\eta\le1/\ell$ enters Theorems~\ref{thm:narrow}, \ref{thm:res} and~\ref{thm:wide} through the sandwich factors $1/(1\pm\eta)$ written into the lines, and Theorem~H1 through its item~(i); Theorem~\ref{thm:verywide} does not need it.
+Second, the bound $q0_n\le2e^{-n^2x/2}$ used in Proposition~\ref{prop:BE} holds for every window of~\cite{F}, as noted in~\cite{H}.
+Third, the factor $1-\bar\varepsilon$ is the hypothesis (P6); every statement of this paper is a statement about $(a)+(a')$ and is independent of the value of $\bar\varepsilon$.

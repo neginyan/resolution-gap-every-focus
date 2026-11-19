@@ -1,0 +1,111 @@
+\section{The 37 lines and the 30 groups of formulas}
+\label{app:B}
+
+\subsection{The lines}
+
+A line is $s\,c\,\sigma^{p-1}f_t(a)$ in the unit of Eq.~\eqref{eq:lines} (Num$/\sigma$), with $f_L=a$, $f_S=\sqrt a$, $f_C=1$, $f_M=1/\sqrt a$, $f_H=1/(a+\sigma)$; $c$ is free of $\sigma$ and is written with $B=b/\sigma^2$.
+Auxiliary quantities: $\eta=1/\ell$, $\mathrm{fl}=1/(1+\eta)$, $U_1=\frac14\sqrt{2\ell+3.1}+10^{-6}$, $X_1=U_1/(3/4)$, $\mathrm{CZ}=\eta^2/(e(1-\eta)^2)$, $K^2=8\ell+100$, $y=1/(2B)$ (in the coefficients, after $(1-b)^2\le1$), $w_0=3/(4B)$, $\mathrm{ringf}=1-K^2(1+\eta)/(8(1-\eta)B)$ ($=1-q$), $z_2=K^2y$, $\mathrm{brk}=1-4b/(1-b)-z_2/12$, $G=g_sP$, $G_\mu=\min(G/\mu,e^{10^{-6}}g_s/8)$ ($=G/\mu$ at every state, by (A)), $M_{4c}=3(1+\eta k_Er^2/(1+r)^2)+6\eta k_Er/(1+r)^2$, $M_{4g}=1.5\,G_\mu/((2+r)^2(1-\eta))$, $f_F=G/(4(1-\eta))$, $f_{Fs}=f_F\sqrt{\kappa/(2B)}$, $c_s=\sqrt{\mathrm{CZ}/2}+r/\sqrt{\pi(2+r)}$, $T_K=0.8e^{-50}(K+1)$.
+Table~\ref{tab:lines37} lists all lines.
+The options are: Fz $=$ common lines $+$ P4z, hneg1, FzK; Tz-B2 $=$ common $+$ P4z, hneg1, hFz, cKz, B2c, B2s; Tz-B1 $=$ common $+$ P4z, hneg1, hFz, cKz, B1m, B1c, B1l, uB2c, uB2s (Tz only when $\mathrm{brk}>0$).
+The common lines are P1, P2z, P3z, d1--d4, N1--N4, N4G, ring2, M0Xi, A1v, A1w, A2k, A2a, A2b, B1w1, B1w2, B2a, B2b and pair.
+The line lossK belongs to two further options (Bz) that are used only in the audits.
+
+\emph{Signs} \proofst. Every $c$ is a product of positive factors in the class ($\eta<1$, $b\le\frac12$, $r>0$, $B>0$, $\mathrm{ringf}\ge1-0.0026$, $1-z_2/2\ge0.995$; cKz only for $\mathrm{brk}>0$, lossK only for $\mathrm{brk}<0$), so the sign of every line is that of the table for every $\ell$.
+
+\begin{table*}
+\caption{The 37 lines: type, sign, power $p$ of $\sigma$ and coefficient $c$. The value of a line is $s\,c\,\sigma^{p-1}f_t(a)$.}
+\label{tab:lines37}
+\begin{ruledtabular}
+\small
+\begin{tabular}{p{0.06\textwidth}p{0.03\textwidth}p{0.03\textwidth}p{0.04\textwidth}p{0.5\textwidth}p{0.22\textwidth}}
+line & type & sign & $p$ & $c$ & origin\\ \hline
+P1 & L & $+$ & $1$ & $1/2$ & $w$-branch gain\\
+P2z & L & $+$ & $1$ & $\mathrm{ringf}\cdot\mathrm{fl}\cdot G/(4\mu r(2+r))$ & P2 with the ring factor $1-q$\\
+P3z & C & $+$ & $2$ & $\frac38(1-b)^2/(1+w_0)$ & $M_0$\\
+P4z & H & $+$ & $3$ & $(B/2)/(1+w_0)^2$ & $M_0$\\
+hFz & H & $+$ & $1$ & $\mathrm{fl}\,(G/4)\,(r/(2+r))\,(1-z_2/2)$ & pair lemma\\
+cKz & C & $+$ & $0$ & $\mathrm{fl}\,(G/4)(1-b)^2\kappa/(4B)\cdot\mathrm{brk}$ & pair lemma (chirp)\\
+d1 & C & $-$ & $3$ & $\gamma B(1+(\eta+0.184)k_E)$ & den\\
+d2 & C & $-$ & $1$ & $\gamma G/(2(1-\eta))$ & den\\
+d3 & L & $-$ & $2$ & $\gamma(1+2\eta k_E)/4$ & den\\
+d4 & L & $-$ & $2$ & $\gamma G_\mu/(8r(2+r)(1-\eta))$ & den\\
+N1 & L & $-$ & $1$ & $\eta k_E(2+r)/(2(1+r))$ & $w$-branch\\
+N2 & L & $-$ & $1$ & $(1+\eta k_Er/(1+r)+2\eta k_E/(1+r))/(16B)$ & $w$-branch\\
+N3 & C & $-$ & $2$ & $(M_{4c}+M_{4g})/2$ & $w$-branch\\
+N4 & L & $-$ & $3$ & $\frac38[(X_1^2+\mathrm{CZ})(1+\eta k_Er/(1+r)+2\eta k_E/(1+r))+rM_{4c}]$ & $w$-branch ($J_{\rm up}$)\\
+N4G & L & $-$ & $3$ & $\frac32[(X_1^2+\mathrm{CZ})G_\mu/(2(1-\eta)(2+r))+r^2M_{4g}]/(4r)$ & $w$-branch\\
+ring2 & L & $-$ & $5$ & $\eta^2g_sT_K/(16rB(2+r)(1-\eta))$ & ring lemma\\
+M0Xi & C & $-$ & $2$ & $\frac1{16}\cdot2.07\,k_E$ & $M_0$ ($\Xi$)\\
+A1v & C & $-$ & $3$ & $\sqrt{7.5B}\,k_E\sqrt P/4$ & Lemma~\ref{lem:CZ2}\\
+A1w & S & $-$ & $\frac72$ & $B(1+\eta)/(4\sqrt\pi)$ & Lemma~\ref{lem:CZ2}\\
+A2k & C & $-$ & $4$ & $B\kappa G/(8(1-\eta))$ & Lemma~\ref{lem:CZ2}\\
+A2a & L & $-$ & $5$ & $B(1+\eta k_Er/(1+r))/8$ & Lemma~\ref{lem:CZ2}\\
+A2b & L & $-$ & $5$ & $B\eta^2g_s/(8r(2+r)(1-\eta))$ & Lemma~\ref{lem:CZ2}\\
+B1w1 & S & $-$ & $\frac72$ & $B(0.184+y)(r/(1+r))/(2\sqrt\pi)$ & Lemma~\ref{lem:CZ2}\\
+B1w2 & S & $-$ & $\frac72$ & $B\eta^2(1+y/2)/(2\sqrt\pi(2+r)(1-\eta))$ & Lemma~\ref{lem:CZ2}\\
+B2a & C & $-$ & $3$ & $\sqrt BU_1\sqrt\kappa G/(4(1-\eta)^2)$ & Lemma~\ref{lem:CZ2}\\
+B2b & L & $-$ & $4$ & $(\sqrt{2B}\sqrt P/8)(k_Er/(1+r)+\eta^2/(\sqrt{r(2+r)}(2+r)(1-\eta)^2))$ & Lemma~\ref{lem:CZ2}\\
+pair & C & $-$ & $4$ & $U_1^2g_s(K+5)\cdot0.4e^{-50}/(1-\eta)$ & pair lemma (tails)\\
+hneg1 & H & $-$ & $3$ & $Bk_E(\eta+0.184)$ & $M_0$ ($R_\theta$, $t_\rho$)\\
+FzK & C & $-$ & $2$ & $\kappa G/(4(1-\eta))$ & option Fz ($B_{1v}$)\\
+lossK & C & $-$ & $0$ & $\kappa G(-\mathrm{brk})/(16B(1-\eta))$ (only for $\mathrm{brk}<0$) & audits only\\
+B2c & C & $-$ & $1$ & $f_FX_1/\sqrt2$ & FrB2\\
+B2s & S & $-$ & $\frac32$ & $f_Fc_s/\sqrt{4r}$ & FrB2\\
+B1m & M & $-$ & $\frac32$ & $f_FX_1\sqrt{4r}/(\sqrt2\sqrt\pi\sqrt{2+r})$ & FrB1\\
+B1c & C & $-$ & $2$ & $f_F(\sqrt{\mathrm{CZ}/(2\pi(2+r))}+r/(2(2+r))+X_1^2+\mathrm{CZ})$ & FrB1\\
+B1l & L & $-$ & $3$ & $f_Fr/(8(2+r))$ & FrB1\\
+uB2c & C & $-$ & $1$ & $f_{Fs}X_1/\sqrt2$ & FrB1\\
+uB2s & S & $-$ & $\frac32$ & $f_{Fs}c_s/\sqrt{4r}$ & FrB1\\
+\end{tabular}
+\end{ruledtabular}
+\end{table*}
+
+The coefficient $c_L\le0.184+y$ of B1w1 is Lemma~\ref{lem:CZ2}(B1w) with Lemma~\ref{lem:M12}; the constant $2.07$ of M0Xi is Lemma~\ref{lem:M4}. For $y\le10^{-40}$ (Theorem~\ref{thm:res}) both are Lemma~\ref{lem:M0}, by hand.
+The lines with $\sqrt P$ and $G/\mu$ are written with the state's own $P$.
+
+\subsection{The 30 groups}
+
+Each line is shown to be a lower bound of its lemma term by a chain
+\emph{lemma term $=$ closed form (substitution only) $\mathrel{\mathrm{rel}_1}v_1\mathrel{\mathrm{rel}_2}\cdots=$ line},
+with ``$=$'' for identities, ``$\ge$'' for gains and ``$\le$'' for losses and den (den with the factor $\gamma$).
+The unit is Num$/\sigma$: $w$-branch terms are divided by $\sigma$, $v$-branch terms ($2N$) by $2\sigma$.
+Notation: $a=4\sigma/L^2$, $A=\sigma a/(4r)=\sigma^2/s^2\le1$ (P4), $\mathsf u=\sigma/a=L^2/4$, $W=G/2$, $\omega=(1+w_0)^{-2}$, $z_0^2=K^2y\le z_2$, $\delta=2b/(1-b)$, $c_\delta=\frac12-\delta-z_0^2/24\ge\mathrm{brk}/2$, $Q_2$ as above.
+Frequently used substitutions: $1/L^2=a/(4\sigma)$, $s^2=4r\sigma/a$, $\mathrm{se2}/s^4=a/(4r\sigma(2+r))$, $D_0/(1-\eta)=Ga/(8\mu r\sigma(2+r)(1-\eta))$ (with $E_0=P/(2\mu)$), $\xi=\sigma X_1$, $\zeta^2=\sigma^2\mathrm{CZ}\,A$.
+(P3) $P\le\mu/8$ is a condition of the lines (through $G_\mu$ in N3, N4G, d4), not of the lemmas; it is part (A) of (H$'$).
+
+\emph{Twelve identities} \proofst{} (substitution only):
+P1 ($2\sigma^2/L^2\div\sigma=a/2$);
+N1 ($2\sigma^2\Lambda_1\div\sigma$);
+N3 ($\sigma^2M_{4w}/2\div\sigma$, with (P3));
+A1w ($b\sigma^2[1/(\sqrt\pi L)+\eta k_E/\sqrt{\pi\mathrm{se}_E}]\div2\sigma$, using $\eta k_E/\sqrt{\mathrm{se}_E}=\eta/L$);
+A2k, A2a, A2b (the three parts of (A2)$\div2\sigma$);
+B2a, B2b (the two parts of (B2)$\div2\sigma$);
+d1 ($\gamma[b(1+\eta k_E)+0.184bk_E]$);
+d2 ($\gamma W/(1-\eta)$);
+d4 ($\gamma\sigma^2D_0/(1-\eta)$, with (P3)).
+
+\emph{Eighteen inequalities} \proofst:
+\begin{itemize}
+\item N4$+$N4G (loss). Lemma: $\frac32\sigma[(\xi^2+\zeta^2)J_{\rm up}+\sigma^4M_{4w}/L^4]$ $=\frac32\sigma[\sigma^2(X_1^2+\mathrm{CZ}A)((a/(4\sigma))Q_2+Ga/(8\mu r\sigma(2+r)(1-\eta)))+\sigma^2a^2M_{4w}/16]$; $\le$ by $A\le1$ twice ($\mathrm{CZ}A\le\mathrm{CZ}$ and $\sigma^2a^2\le\sigma^2a\cdot4r/\sigma$); $=$ by (P3) ($G/\mu=G_\mu$); expanded, this is N4$+$N4G.
+\item ring2 (loss). $\sigma^3(1-b)^2\eta^2T_2(K)g_s\mathrm{se2}/(4bs^4(1-\eta))$ with $T_2(K)\le2\varphi(K)(K+1/K)$ ($Q(K)\le\varphi(K)/K$) and $\varphi(K)=\sigma^4e^{-50}/\sqrt{2\pi}$ exactly for $K^2=8\ell+100$; $\le$ by $(1-b)^2\le1$ and $2(K+1/K)/\sqrt{2\pi}\le0.8(K+1)$.
+\item B2c$+$B2s (loss, FrB2). $\mathrm{FrB2}/(2\sigma)=f_F[U_1/(\sqrt2(1-\eta))+c_s\sqrt A]$ (with $\zeta/\sqrt2=\sigma\sqrt{\mathrm{CZ}/2}\sqrt A$, $\sigma^2\sqrt{\mathrm{se2}/\pi}/L^2=\sigma r\sqrt A/\sqrt{\pi(2+r)}$); $\le$ by $1/(1-\eta)\le\frac43$, so $U_1/(1-\eta)\le X_1$. $\sqrt A$ is kept (used in (R6) with $A\le1$).
+\item B1m$+$B1c$+$B1l$+$uB2c$+$uB2s (loss, FrB1). With $\hat c_0=c_0/\sigma=U_1/(\sqrt2(1-\eta))+\sqrt{\mathrm{CZ}/2}\sqrt A$ and $m=2\sqrt r/(\sqrt{\pi(2+r)}\sqrt a)$: $\mathrm{FrB1}/(2\sigma)=f_F[\sqrt\sigma\hat c_0m+\sigma r/(2(2+r))+\sigma\hat c_0^2+\sigma^2ar/(8(2+r))]+(1-b)f_{Fs}[U_1/(\sqrt2(1-\eta))+c_s\sqrt A]$;
+$\le$ by $\hat c_0\le X_1/\sqrt2$ (from $A\le1$ and $U_1(\frac43-1/(1-\eta))\ge\sqrt{\mathrm{CZ}}$, which holds for all $\ell\ge55.26$: the left side is at least $0.83$ and the right side at most $0.0112$); $\le$ by $\hat c_0^2\le X_1^2+\mathrm{CZ}$; $\le$ by adding $\sigma\sqrt{\mathrm{CZ}/(2\pi(2+r))}\ge0$, $1-b\le1$ and $1/(1-\eta)\le\frac43$. Uses $\eta\le\frac14$, $A\le1$.
+\item P2z (gain). $(\mathrm{P2}-\mathrm{ring1})/\sigma=c_f[1-(1-b)^2K^2(1+\eta)/(8B(1-\eta))]$, $c_f=\mathrm{fl}\,Ga/(4\mu r(2+r))$; $\ge$ by $(1-b)^2\le1$.
+\item P3z$+$P4z (gain). $b\Psi_0/(2\sigma)=\mathsf h[1-(1-y)e^{-y/2}e^{-\mathsf u}]$, $\mathsf h=b/(2\sigma)$; $\ge\mathsf h(\mathsf u+d_y)/(1+\mathsf u)$ ($e^{-\mathsf u}\le1/(1+\mathsf u)$, $1-d_y=(1-y)e^{-y/2}$) $\ge\mathsf h[\omega\mathsf u/(1+\mathsf u)+\min(d_y,1-\omega)]\ge\mathsf h[\omega\mathsf u/(1+\mathsf u)+1.5y/(1+w_0)]$, by $d_y\ge1.5y-\frac58y^2$ and $w_0\ge3y/2$. ($d_y-1.5y+\frac58y^2$ vanishes with its derivative at $0$ and has second derivative $e^{-y/2}(-\frac54+\frac y4)+\frac54\ge\frac54(1-e^{-y/2})\ge0$.)
+\item hFz (gain). $p_h(1-e^{-\mathsf v})$, $p_h=G(1-z_0^2/2)/(4\sigma(1+\eta))$, $\mathsf v=r\sigma/(a(2+r))=\mathrm{se2}/4$; $\ge p_h\mathsf v/(1+\mathsf v)$ ($1-e^{-\mathsf v}\ge\mathsf v/(1+\mathsf v)$); $\ge$ by $r\sigma\le(2+r)\sigma$ and $z_0^2\le z_2$.
+\item cKz (gain). chirp$/(2\sigma)=c_\delta(1-b)^2\kappa G\,\mathrm{fl}/(8B\sigma)$ ($c_\delta>0$); $\ge$ by $c_\delta\ge\mathrm{brk}/2$.
+\item N2 (loss). $(1-b)^2Q_2a/(16B)\le Q_2a/(16B)$.
+\item hneg1 (loss). $(\mathrm{pr}/(2\sigma))(1-e^{-\mathsf v'})$, $\mathrm{pr}=k_Eb(\eta+0.184)$, $\mathsf v'=r\sigma/(a(1+r))$; $\le(\mathrm{pr}/(2\sigma))\min(1,\mathsf v')\le\mathrm{pr}/(a+\sigma)$ (split $a\le\sigma$, $a\ge\sigma$; $r/(1+r)\le\frac15$).
+\item M0Xi (loss). $k_Eby\Qb M_4/(2\sigma)=\sigma(1-b)^2\frac1{16}\cdot2.07k_E\le\sigma\frac1{16}\cdot2.07k_E$ (Lemma~\ref{lem:M4}).
+\item A1v (loss). $\sigma^2(1-b)k_E\sqrt{7.5BP}/4\le\sigma^2\sqrt{7.5B}k_E\sqrt P/4$.
+\item B1w1, B1w2 (loss). The two parts of (B1w)$\div2\sigma$; $\le$ by $y\le1/(2B)$ (and $c_L\le0.184+y$).
+\item pair (loss). $(\text{tails}+\text{chirp tail})/(2\sigma)=p_f[(4/K+2\delta\sqrt y)/(2\sqrt{2\pi}(1-\eta))+c_\delta y(K+1/K)/(\sqrt{2\pi}(1+\eta))]$, $p_f=\sigma^3U_1^2g_se^{-50}$; $\le(p_f/(1-\eta))(1.6+0.2(K+1))\le(p_f/(1-\eta))0.4(K+5)$ ($K\ge1$, $\delta\le2$, $y\le1$, $c_\delta\le\frac12$).
+\item FzK (loss). $\sigma(1-b)\kappa G/(4(1-\eta))\le\sigma\kappa G/(4(1-\eta))$.
+\item lossK (loss, audits only). $(-c_\delta)(1-b)^2\kappa G/(8B\sigma(1-\eta))\le\sigma^{-1}\kappa G(-\mathrm{brk})/(16B(1-\eta))$ ($-2c_\delta\le-\mathrm{brk}$).
+\item d3 (den). $\gamma\sigma a(1+\eta k_E(2+r)/(1+r))/4\le\gamma\sigma a(1+2\eta k_E)/4$.
+\end{itemize}
+The groups cover each of the 37 lines and each lemma term once.
+Their sums agree with $\Lambda_k$ of the table and with the lemma bound $\Phi_k/\sigma$ for the five options and branches to a relative $3\times10^{-63}$, and every step of every group holds at $37{,}886$ points in $64$ to $84$ decimal digits ($\ell=55.26$, $955.8$, $10^6$, $10^{12}$) \numst; a reversed version of each inequality and a changed factor in each identity are caught.
+Seven of the eighteen inequalities only replace a factor $1-b$, $(1-b)^2$ or $y$ by its bound; the other eleven are where the lines are genuinely weaker than the lemmas.
+For $b\in(\frac12,1]$ (Theorem~\ref{thm:res}) only the groups of the option Fz enter, and their steps use $(1-b)^2\le1$, $1-b\le1$ and $y\le1/(2B)$, which hold for $b\le1$.
