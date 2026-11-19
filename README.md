@@ -55,7 +55,7 @@ Every rerun is made in a temporary copy and compared with the stored record entr
 | `src/` | the code of the paper (Python 3, NumPy, SciPy, Matplotlib) |
 | `results/` | the stored records |
 | `verification/` | `quick.py`, `run_all.py`, `map_check.py`, `common.py` |
-| `paper/` | LaTeX source of the paper (REVTeX 4.2) its figures and the PDF of v1.0 |
+| `paper/` | LaTeX source of the paper (REVTeX 4.2), its figures and the PDF of v1.0 |
 
 The working record of the proofs (the stage reports of the lab sessions) is kept by the author.
 
